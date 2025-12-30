@@ -59,7 +59,7 @@ export default function Navbar() {
         <div className="w-[150px] items-right ">
           <Link 
             href="/contact" 
-            className="hidden md:flex items-center justify-center px-12 py-4 bg-[var(--primary)] text-white text-[15px] font-extrabold rounded-full hover:bg-black hover:shadow-2xl transition-all duration-300 transform active:scale-95 whitespace-nowrap mr-69%"
+            className="hidden md:flex items-center justify-center px-12 py-4 bg-[var(--primary)] text-white text-[15px] font-extrabold rounded-full hover:bg-black hover:shadow-2xl transition-all duration-300 transform active:scale-95 whitespace-nowrap ml-10"
           >
             Get in Touch
           </Link>
