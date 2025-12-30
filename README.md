@@ -166,6 +166,6 @@ This project is proprietary and owned by Gambo Consultancy. All rights reserved.
 ---
 
 <div align="center">
-  <p>Made with ❤️ by <strong>SAMKIEL</strong></p>
+  <p>Made with ❤️ by <strong><a href="https://samkiel.dev">SAMKIEL</a></strong></p>
   <p>© 2026 Gambo Consultancy. All rights reserved.</p>
 </div>
