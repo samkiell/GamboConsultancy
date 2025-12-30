@@ -57,109 +57,62 @@
 
 ---
 
-## 🎨 Color Palette
+## 🎨 Design System
 
-| Color | Hex Code | Usage |
-|-------|----------|-------|
-| 🔵 **Primary** | `#007BFF` | Main brand color, CTAs, links |
-| 🟢 **Secondary** | `#28A745` | Success states, accents |
-| 🔷 **Accent** | `#17A2B8` | Supporting highlights |
-| ⚫ **Text** | `#212529` | Primary body text |
-| ⚪ **Background** | `#F8F9FA` | Page backgrounds |
+### Aesthetic: Minimalist & Premium
+The current design follows a high-end minimalist aesthetic, focusing on:
+- **Generous White Space**: Allowing content to breathe.
+- **Bold Typography**: Using hierarchy to guide the user.
+- **Grayscale with Accents**: Primarily using Black, White, and Grays, with subtle Blue/Green accents.
+- **Subtle Motion**: Using Framer Motion for gentle, purposeful transitions.
 
----
+### Color Palette
 
-## 📁 Project Structure
-
-```
-GamboConsultancy/
-├── 📂 public/
-│   ├── 📂 draft/              # Draft images
-│   └── 📂 images/             # Production images
-├── 📂 src/
-│   ├── 📂 app/
-│   │   ├── 📄 layout.tsx      # Root layout
-│   │   ├── 📄 page.tsx        # Landing page
-│   │   ├── 📄 globals.css     # Global styles
-│   │   ├── 📂 about/          # About page
-│   │   ├── 📂 services/       # Services page
-│   │   └── 📂 contact/        # Contact page
-│   └── 📂 components/
-│       ├── 📄 Navbar.tsx      # Navigation
-│       └── 📄 Footer.tsx      # Footer
-├── 📄 Documentation.md        # Full documentation
-├── 📄 package.json
-└── 📄 tsconfig.json
-```
+| Color Name | Hex Code | CSS Variable | Usage |
+|------------|----------|--------------|-------|
+| 🔵 **Primary** | `#006837` | `--primary` | Main brand color (Green), CTAs, links |
+| 🟢 **Primary Light** | `#8DC63F` | `--primary-light` | Vibrant accents, secondary highlights |
+| 🌑 **Primary Dark** | `#004d29` | `--primary-dark` | Hover states, deep contrast |
+| ⚫ **Text Main** | `#1A1A1A` | `--text-main` | Primary headings and body |
+| 🔘 **Text Muted** | `#575757` | `--text-muted` | Secondary descriptions |
+| ⚪ **Background** | `#FFFFFF` | `--bg-main` | Primary surface |
+| 🌫️ **Soft BG** | `#F9FAFB` | `--bg-soft` | Section alternates, cards |
+| ⬜ **Border** | `#EDEDED` | `--border-soft` | Soft structural dividers |
 
 ---
 
-## 🚀 Getting Started
+## 📄 Pages & Development Progress
 
-### Prerequisites
+| Page | Status | Description |
+|------|--------|-------------|
+| **Home** | ✅ Complete | Landing page with hero, services, testimonials, and trust badges |
+| **Navbar** | ✅ Complete | Responsive navigation with mobile menu |
+| **Footer** | ✅ Complete | Links, newsletter, contact info, social media |
+| **About** | 🚧 Placeholder | Mission, vision, team profiles, and company history |
+| **Services** | 🚧 Placeholder | Overview of consultancy services (Education, IT, Leadership, etc.) |
+| **Contact** | 🚧 Placeholder | Contact form with validation and Google Maps integration |
 
-- **Node.js** 18+ (LTS recommended)
-- **npm** or **yarn** package manager
-
-### Installation
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/yourusername/gamboconsultancy.git
-   cd gamboconsultancy
-   ```
-
-2. **Install dependencies**
-   ```bash
-   npm install
-   # or
-   yarn install
-   ```
-
-3. **Run development server**
-   ```bash
-   npm run dev
-   # or
-   yarn dev
-   ```
-
-4. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
----
-
-## 📜 Available Scripts
-
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint |
-
----
-
-## 📄 Pages
-
-| Page | Route | Description |
-|------|-------|-------------|
-| **Home** | `/` | Landing page with hero, services, testimonials |
-| **About** | `/about` | Company info, mission, vision, timeline |
-| **Services** | `/services` | Overview of all consultancy services |
-| **Contact** | `/contact` | Contact form and location info |
-
-### Service Pages (Coming Soon)
-- `/services/educational` - Educational Consultancy
-- `/services/it` - IT Consultancy
-- `/services/leadership` - Leadership Consultancy
-- `/services/mentorship` - Mentorship Consultancy
-- `/services/life-coaching` - Life Coaching
+### 📋 Planned Pages
+- `/services/educational` - Educational Consultancy details
+- `/services/it` - IT Consultancy details
+- `/services/leadership` - Leadership Consultancy details
+- `/services/mentorship` - Mentorship Consultancy details
+- `/services/life-coaching` - Life Coaching details
+- `/blog` - Articles and insights
+- `/testimonials` - Full testimonials page
+- `/faq` - Frequently asked questions
 
 ---
 
 ## 🏢 About Gambo Consultancy
 
 **Gambo Consultancy** is a premier consultancy firm dedicated to empowering individuals, organizations, and educational institutions to achieve their full potential.
+
+### Mission Statement
+> Empowering individuals, organizations, and educational institutions to achieve their full potential through expert consultancy and guidance.
+
+### Vision Statement
+> To be a leading consultancy firm recognized for expertise, innovation, and unwavering commitment to excellence.
 
 ### Services Offered
 
