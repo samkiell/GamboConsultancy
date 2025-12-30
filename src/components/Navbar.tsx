@@ -23,10 +23,10 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md border-b border-gray-100 py-3' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white border-b border-gray-50'} py-3`}>
       <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center gap-3">
-          <div className="relative w-40 h-10 md:w-48 md:h-12">
+        <Link href="/" className="flex items-center">
+          <div className="relative w-44 h-11 md:w-56 md:h-14">
             <Image 
               src="/logo.jpg" 
               alt="Gambo Consultancy Logo" 
