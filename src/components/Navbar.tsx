@@ -56,18 +56,20 @@ export default function Navbar() {
         </div>
 
         {/* Right: CTA */}
-        <div className="flex-1 flex justify-end items-center gap-6">
+        <div className="flex-1 flex justify-end items-center">
           <Link 
             href="/contact" 
-            className="hidden md:block px-7 py-3 bg-[var(--primary)] text-white text-sm font-bold rounded-full hover:bg-black transition-all shadow-md transform hover:scale-105 active:scale-95"
+            className="hidden md:block px-10 py-4 bg-[var(--primary)] text-white text-[14px] font-extrabold rounded-full hover:bg-black transition-all shadow-lg transform hover:scale-105 active:scale-95 whitespace-nowrap"
           >
             Get in Touch
           </Link>
 
           {/* Mobile toggle */}
-          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-gray-900">
-            {isOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          <div className="md:hidden ml-4">
+            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-900">
+              {isOpen ? <X size={28} /> : <Menu size={28} />}
+            </button>
+          </div>
         </div>
       </div>
 
