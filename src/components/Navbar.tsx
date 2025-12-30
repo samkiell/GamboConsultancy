@@ -24,42 +24,51 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white border-b border-gray-50'} py-3`}>
-      <div className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-        <Link href="/" className="flex items-center">
-          <div className="relative w-44 h-11 md:w-56 md:h-14">
-            <Image 
-              src="/logo.jpg" 
-              alt="Gambo Consultancy Logo" 
-              fill 
-              className="object-contain" 
-              priority
-            />
-          </div>
-        </Link>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        
+        {/* Left: Logo */}
+        <div className="flex-1 flex justify-start">
+          <Link href="/" className="flex items-center">
+            <div className="relative w-44 h-11 md:w-56 md:h-14">
+              <Image 
+                src="/logo.jpg" 
+                alt="Gambo Consultancy Logo" 
+                fill 
+                className="object-contain" 
+                priority
+              />
+            </div>
+          </Link>
+        </div>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-10">
+        {/* Center: Desktop Narvigation Links */}
+        <div className="hidden md:flex items-center justify-center gap-12 flex-1">
           {links.map((link) => (
             <Link 
               key={link.name} 
               href={link.href} 
-              className="text-sm font-semibold text-gray-700 hover:text-[var(--primary)] transition-colors"
+              className="text-[15px] font-semibold text-gray-700 hover:text-[var(--primary)] transition-all relative group"
             >
               {link.name}
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all group-hover:w-full"></span>
             </Link>
           ))}
+        </div>
+
+        {/* Right: CTA */}
+        <div className="flex-1 flex justify-end items-center gap-6">
           <Link 
             href="/contact" 
-            className="px-6 py-2.5 bg-[var(--primary)] text-white text-sm font-bold rounded hover:bg-black transition-all shadow-sm"
+            className="hidden md:block px-7 py-3 bg-[var(--primary)] text-white text-sm font-bold rounded-full hover:bg-black transition-all shadow-md transform hover:scale-105 active:scale-95"
           >
             Get in Touch
           </Link>
-        </div>
 
-        {/* Mobile toggle */}
-        <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-gray-900">
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
+          {/* Mobile toggle */}
+          <button onClick={() => setIsOpen(!isOpen)} className="md:hidden p-2 text-gray-900">
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
