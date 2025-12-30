@@ -39,8 +39,8 @@ export default function Home() {
           - Vertical padding: min 120px desktop (pt-32), 64px mobile (pt-24 to clear nav).
       */}
       {/* Hero Section */}
-      <section className="relative pt-28 pb-12 md:pt-48 md:pb-32 bg-white overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 bg-white">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Column: Content */}
           <motion.div 
@@ -49,29 +49,29 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-start z-10"
           >
-            <span className="text-[var(--primary)] font-bold tracking-widest text-xs md:text-sm uppercase mb-4 md:mb-6">
+            <span className="text-[var(--primary)] font-bold tracking-widest text-sm uppercase mb-6">
               Corporate Education & Consulting
             </span>
             
-            <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight md:leading-[1.1] mb-4 md:mb-6 tracking-tight">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
               Empowering <br />
               <span className="text-[var(--primary)]">Education</span> with Strategy.
             </h1>
             
-            <p className="text-base md:text-xl text-gray-500 leading-relaxed mb-8 md:mb-10 max-w-lg font-light">
+            <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-lg font-light">
               Gambo Consultancy provides expert solutions, training, and support for schools, parents, and students to achieve sustainable excellence.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link 
                 href="/contact" 
-                className="min-w-[200px] px-8 py-4 md:py-5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:bg-[var(--primary-dark)] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
+                className="min-w-[200px] px-8 py-5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:bg-[var(--primary-dark)] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
               >
                 Get in Touch <ArrowRight size={20} />
               </Link>
               <Link 
                 href="/services" 
-                className="min-w-[200px] px-8 py-4 md:py-5 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center w-full sm:w-auto"
+                className="min-w-[200px] px-8 py-5 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center w-full sm:w-auto"
               >
                 Explore Services
               </Link>
@@ -83,17 +83,16 @@ export default function Home() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative h-[300px] md:h-[600px] w-full bg-gray-50 rounded-2xl overflow-hidden shadow-sm border border-gray-100 order-first lg:order-last mb-8 lg:mb-0"
+            className="relative h-[400px] md:h-[600px] w-full bg-gray-50 rounded-2xl overflow-hidden shadow-sm border border-gray-100"
           >
              <div className="absolute inset-0 bg-[var(--primary)]/5 flex items-center justify-center">
-                <div className="relative w-full h-full p-6 md:p-12">
+                <div className="relative w-full h-full p-12">
                    <div className="w-full h-full bg-white rounded-xl shadow-sm flex items-center justify-center text-gray-200 overflow-hidden relative">
                       <Image 
                         src="/hero-consulting.png" 
                         alt="Consulting Strategy"
                         fill
                         className="object-cover opacity-90 hover:scale-105 transition-transform duration-700"
-                        priority
                       />
                    </div>
                 </div>
@@ -104,23 +103,12 @@ export default function Home() {
       </section>
 
       {/* 3. Services Preview Section */}
-      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white" id="expertise">
-        {/* Decorative Background Elements */}
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-           <div className="absolute -top-[20%] -right-[10%] w-[500px] h-[500px] bg-[var(--primary-light)]/10 rounded-full blur-3xl opacity-50" />
-           <div className="absolute top-[40%] -left-[10%] w-[400px] h-[400px] bg-[var(--primary)]/5 rounded-full blur-3xl opacity-50" />
-        </div>
-
-        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
-          <div className="text-center mb-20 max-w-3xl mx-auto">
-            <span className="text-[var(--primary-light)] font-bold tracking-widest text-sm uppercase mb-4 block">
-              Our Expertise
-            </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
-              Excellence in <span className="text-[var(--primary)]">Education</span> & Technology.
-            </h2>
-            <p className="text-gray-500 text-lg leading-relaxed">
-              We bridge the gap between traditional education and modern technology, providing tailored solutions that drive growth and efficiency.
+      <section className="py-24 bg-[var(--bg-soft)]">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
+          <div className="text-center mb-20 max-w-2xl mx-auto">
+            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Our Expertise</h2>
+            <p className="text-gray-500 text-lg">
+              Explore our core services designed to assist schools, parents, and students in navigating the educational landscape.
             </p>
           </div>
 
@@ -132,29 +120,23 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
+                className="bg-white p-8 md:p-10 rounded-2xl border border-gray-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full"
               >
-                {/* Hover Accent Line */}
-                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-light)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
-                
-                {/* Icon with soft background */}
-                <div className="mb-8 relative inline-block">
-                   <div className="absolute inset-0 bg-[var(--primary-light)]/20 rounded-xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300" />
-                   <div className="relative bg-[var(--primary-bg)] w-16 h-16 flex items-center justify-center rounded-xl text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white transition-colors duration-300 shadow-sm">
-                     <service.icon size={32} strokeWidth={1.5} />
-                   </div>
+                {/* Clean Icon Style - No Box */}
+                <div className="mb-6 text-[var(--primary)] group-hover:scale-110 transition-transform origin-left duration-300">
+                  <service.icon size={48} strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[var(--primary)] transition-colors">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[var(--primary)] transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-500 leading-relaxed mb-8">
+                <p className="text-gray-500 leading-relaxed mb-8 flex-grow">
                   {service.desc}
                 </p>
                 
-                <div className="mt-auto">
-                   <Link href="/services" className="inline-flex items-center gap-2 text-[var(--primary)] font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
+                <div className="mt-auto pt-6 border-t border-gray-50">
+                   <Link href="/services" className="inline-flex items-center gap-2 text-[var(--primary)] font-semibold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
                      Learn More <ArrowRight size={16} />
                    </Link>
                 </div>
@@ -165,7 +147,7 @@ export default function Home() {
       </section>
 
       {/* 4. Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Text Block */}
@@ -200,7 +182,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-16 md:py-24 bg-[var(--primary)] text-white text-center">
+      <section className="py-24 bg-[var(--primary)] text-white text-center">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to elevate your institution?</h2>
           <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
