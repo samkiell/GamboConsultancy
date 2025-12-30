@@ -103,14 +103,27 @@ export default function Home() {
       </section>
 
       {/* 3. Services Preview Section */}
-      <section className="py-24 bg-[var(--bg-soft)]">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
-          <div className="text-center mb-20 max-w-2xl mx-auto">
+      <section className="py-24 bg-gradient-to-br from-gray-50 via-white to-[var(--primary)]/5 relative overflow-hidden">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-[var(--primary)]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-[var(--primary-light)]/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2"></div>
+        
+        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-20 max-w-2xl mx-auto"
+          >
+            <span className="inline-block px-4 py-2 bg-[var(--primary)]/10 text-[var(--primary)] font-bold text-sm uppercase tracking-wider rounded-full mb-6">
+              What We Offer
+            </span>
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Our Expertise</h2>
-            <p className="text-gray-500 text-lg">
-              Explore our core services designed to assist schools, parents, and students in navigating the educational landscape.
+            <p className="text-gray-600 text-lg leading-relaxed">
+              Comprehensive solutions designed to empower schools, parents, and students 
+              in achieving educational excellence through innovation and expertise.
             </p>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, i) => (
@@ -120,29 +133,56 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 md:p-10 rounded-2xl border border-gray-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full"
+                className="bg-white p-8 md:p-10 rounded-2xl border border-gray-100 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.08)] hover:shadow-[0_20px_40px_-12px_rgba(0,0,0,0.15)] hover:-translate-y-2 hover:scale-[1.02] transition-all duration-500 group flex flex-col h-full relative overflow-hidden"
               >
-                {/* Clean Icon Style - No Box */}
-                <div className="mb-6 text-[var(--primary)] group-hover:scale-110 transition-transform origin-left duration-300">
+                {/* Gradient Accent on Hover */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-light)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                
+                {/* Icon with Enhanced Animation */}
+                <div className="mb-6 text-[var(--primary)] group-hover:scale-110 group-hover:rotate-3 transition-all origin-left duration-500">
                   <service.icon size={48} strokeWidth={1.5} />
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[var(--primary)] transition-colors">
+                <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-4 group-hover:text-[var(--primary)] transition-colors duration-300">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-500 leading-relaxed mb-8 flex-grow">
+                <p className="text-gray-600 leading-relaxed mb-8 flex-grow">
                   {service.desc}
                 </p>
                 
-                <div className="mt-auto pt-6 border-t border-gray-50">
-                   <Link href="/services" className="inline-flex items-center gap-2 text-[var(--primary)] font-semibold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
-                     Learn More <ArrowRight size={16} />
+                <div className="mt-auto pt-6 border-t border-gray-100">
+                   <Link 
+                     href="/services" 
+                     className="inline-flex items-center gap-2 text-[var(--primary)] font-bold text-sm uppercase tracking-wider group-hover:gap-4 transition-all duration-300 group/link"
+                   >
+                     <span className="relative">
+                       Learn More
+                       <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--primary)] group-hover/link:w-full transition-all duration-300"></span>
+                     </span>
+                     <ArrowRight size={16} className="group-hover/link:translate-x-1 transition-transform" />
                    </Link>
                 </div>
               </motion.div>
             ))}
           </div>
+
+          {/* View All Services CTA */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.4 }}
+            className="text-center mt-16"
+          >
+            <Link 
+              href="/services"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-[var(--primary)] text-white text-lg font-bold rounded-full hover:bg-[var(--primary-dark)] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 group"
+            >
+              View All Services
+              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+            </Link>
+          </motion.div>
         </div>
       </section>
 
