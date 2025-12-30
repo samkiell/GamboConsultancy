@@ -59,14 +59,14 @@ export default function Navbar() {
         <div className="w-[150px] items-right ">
           <Link 
             href="/contact" 
-            className="pt10px hidden md:flex items-center justify-center px-12 py-4 bg-[var(--primary)] text-white text-[15px] font-extrabold rounded-full hover:bg-black hover:shadow-2xl transition-all duration-300 transform active:scale-95 whitespace-nowrap ml-10"
+            className="hidden md:flex items-center justify-center px-12 py-4 bg-[var(--primary)] text-white text-[15px] font-extrabold rounded-full hover:bg-black hover:shadow-2xl transition-all duration-300 transform active:scale-95 whitespace-nowrap mr-4"
           >
             Get in Touch
           </Link>
 
           {/* Mobile toggle */}
           <div className="md:hidden">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-900 ml-2">
+            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-900">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
