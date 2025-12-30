@@ -55,7 +55,7 @@ export default function Home() {
       <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden bg-[var(--primary-bg)]">
         <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--primary)] opacity-[0.03] skew-x-12 transform origin-top-right transition-all" />
         
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
           <div className="max-w-3xl">
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
@@ -86,7 +86,7 @@ export default function Home() {
 
       {/* Services Section */}
       <section className="py-24 md:py-32">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
             <div className="max-w-2xl">
               <span className="text-[var(--primary)] font-bold uppercase tracking-widest text-xs mb-4 block">Our Expertise</span>
