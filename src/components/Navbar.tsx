@@ -60,7 +60,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4">
           <Link 
             href="/contact" 
-            className="hidden md:flex items-center justify-center px-8 py-3 bg-[var(--primary)] text-white text-[14px] font-bold rounded-full hover:bg-[var(--primary-dark)] hover:shadow-lg transition-all duration-300 transform active:scale-95 whitespace-nowrap"
+            className="hidden md:flex items-center justify-center px-10 py-3 bg-[var(--primary)] text-white text-[14px] font-bold rounded-full hover:bg-[var(--primary-dark)] hover:shadow-lg transition-all duration-300 transform active:scale-95 whitespace-nowrap"
           >
             Get in Touch
           </Link>
