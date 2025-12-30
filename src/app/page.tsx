@@ -39,8 +39,8 @@ export default function Home() {
           - Vertical padding: min 120px desktop (pt-32), 64px mobile (pt-24 to clear nav).
       */}
       {/* Hero Section */}
-      <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 bg-white">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <section className="relative pt-28 pb-12 md:pt-48 md:pb-32 bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Content */}
           <motion.div 
@@ -49,29 +49,29 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="flex flex-col items-start z-10"
           >
-            <span className="text-[var(--primary)] font-bold tracking-widest text-sm uppercase mb-6">
+            <span className="text-[var(--primary)] font-bold tracking-widest text-xs md:text-sm uppercase mb-4 md:mb-6">
               Corporate Education & Consulting
             </span>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
+            <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-tight md:leading-[1.1] mb-4 md:mb-6 tracking-tight">
               Empowering <br />
               <span className="text-[var(--primary)]">Education</span> with Strategy.
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-lg font-light">
+            <p className="text-base md:text-xl text-gray-500 leading-relaxed mb-8 md:mb-10 max-w-lg font-light">
               Gambo Consultancy provides expert solutions, training, and support for schools, parents, and students to achieve sustainable excellence.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
               <Link 
                 href="/contact" 
-                className="min-w-[200px] px-8 py-5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:bg-[var(--primary-dark)] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
+                className="min-w-[200px] px-8 py-4 md:py-5 bg-[var(--primary)] text-white font-semibold rounded-lg hover:bg-[var(--primary-dark)] transition-all flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:-translate-y-1 w-full sm:w-auto"
               >
                 Get in Touch <ArrowRight size={20} />
               </Link>
               <Link 
                 href="/services" 
-                className="min-w-[200px] px-8 py-5 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center w-full sm:w-auto"
+                className="min-w-[200px] px-8 py-4 md:py-5 bg-white border border-gray-200 text-gray-700 font-semibold rounded-lg hover:border-gray-400 hover:bg-gray-50 transition-all flex items-center justify-center w-full sm:w-auto"
               >
                 Explore Services
               </Link>
@@ -83,16 +83,17 @@ export default function Home() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="relative h-[400px] md:h-[600px] w-full bg-gray-50 rounded-2xl overflow-hidden shadow-sm border border-gray-100"
+            className="relative h-[300px] md:h-[600px] w-full bg-gray-50 rounded-2xl overflow-hidden shadow-sm border border-gray-100 order-first lg:order-last mb-8 lg:mb-0"
           >
              <div className="absolute inset-0 bg-[var(--primary)]/5 flex items-center justify-center">
-                <div className="relative w-full h-full p-12">
+                <div className="relative w-full h-full p-6 md:p-12">
                    <div className="w-full h-full bg-white rounded-xl shadow-sm flex items-center justify-center text-gray-200 overflow-hidden relative">
                       <Image 
                         src="/hero-consulting.png" 
                         alt="Consulting Strategy"
                         fill
                         className="object-cover opacity-90 hover:scale-105 transition-transform duration-700"
+                        priority
                       />
                    </div>
                 </div>
@@ -103,7 +104,7 @@ export default function Home() {
       </section>
 
       {/* 3. Services Preview Section */}
-      <section className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white" id="expertise">
+      <section className="py-16 md:py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white" id="expertise">
         {/* Decorative Background Elements */}
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
            <div className="absolute -top-[20%] -right-[10%] w-[500px] h-[500px] bg-[var(--primary-light)]/10 rounded-full blur-3xl opacity-50" />
@@ -164,7 +165,7 @@ export default function Home() {
       </section>
 
       {/* 4. Why Choose Us Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Text Block */}
@@ -199,7 +200,7 @@ export default function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 bg-[var(--primary)] text-white text-center">
+      <section className="py-16 md:py-24 bg-[var(--primary)] text-white text-center">
         <div className="max-w-4xl mx-auto px-6 md:px-12">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to elevate your institution?</h2>
           <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
