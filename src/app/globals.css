@@ -1,18 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  /* Gambo Consultancy Redefined - Minimalist Palette */
-  --primary: #007BFF;
-  --primary-bg: #EBF5FF;
-  --secondary: #28A745;
-  --accent: #17A2B8;
+  /* Gambo Consultancy Brand Colors */
+  --primary: #006837;      /* Precise Dark Green from Logo */
+  --primary-light: #8DC63F; /* Vibrant Light Green from Logo */
+  --primary-bg: #F0F9F4;
   
-  --text-main: #1A1A1A;
-  --text-muted: #575757;
+  --text-main: #000000;
+  --text-muted: #4B5563;
   --bg-main: #FFFFFF;
   --bg-soft: #F9FAFB;
   
-  --border-soft: #EDEDED;
+  --border-soft: #E5E7EB;
 }
 
 @theme inline {
