@@ -27,9 +27,9 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-20 flex items-center">
         
         {/* Left: Logo - Fixed width to help centering */}
-        <div className="w-[240px] flex justify-start">
+        <div className="w-[300px] flex justify-start">
           <Link href="/" className="flex items-center">
-            <div className="relative w-44 h-10 md:w-52 md:h-12">
+            <div className="relative w-52 h-12 md:w-64 md:h-16">
               <Image 
                 src="/logo.jpg" 
                 alt="Gambo Consultancy Logo" 
@@ -47,7 +47,7 @@ export default function Navbar() {
             <Link 
               key={link.name} 
               href={link.href} 
-              className="text-[15px] font-semibold text-gray-600 hover:text-[var(--primary)] transition-all relative group py-2"
+              className="text-[16px] font-bold text-gray-700 hover:text-[var(--primary)] transition-all relative group py-2"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full"></span>
@@ -56,10 +56,10 @@ export default function Navbar() {
         </div>
 
         {/* Right: CTA - Fixed width for symmetry */}
-        <div className="w-[240px] flex justify-end items-center">
+        <div className="w-[150px] items-right ">
           <Link 
             href="/contact" 
-            className="hidden md:flex items-center justify-center px-8 py-3 bg-[var(--primary)] text-white text-[14px] font-bold rounded-full hover:bg-black hover:shadow-xl transition-all duration-300 transform active:scale-95 whitespace-nowrap"
+            className="hidden md:flex items-center justify-center px-12 py-4 bg-[var(--primary)] text-white text-[15px] font-extrabold rounded-full hover:bg-black hover:shadow-2xl transition-all duration-300 transform active:scale-95 whitespace-nowrap mr-69%"
           >
             Get in Touch
           </Link>
