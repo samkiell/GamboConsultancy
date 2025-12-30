@@ -84,32 +84,28 @@ GamboConsultancy/
 
 ## 🎨 Design System
 
+### Aesthetic: Minimalist & Premium
+The current design follows a high-end minimalist aesthetic, focusing on:
+- **Generous White Space**: Allowing content to breathe.
+- **Bold Typography**: Using hierarchy to guide the user.
+- **Grayscale with Accents**: Primarily using Black, White, and Grays, with subtle Blue/Green accents.
+- **Subtle Motion**: Using Framer Motion for gentle, purposeful transitions.
+
 ### Color Palette
 
 | Color Name | Hex Code | CSS Variable | Usage |
 |------------|----------|--------------|-------|
-| **Primary** | `#007BFF` | `--primary` | Main brand color, CTAs, links |
-| **Primary Dark** | `#0056b3` | `--primary-dark` | Hover states, emphasis |
-| **Primary Light** | `#4da3ff` | `--primary-light` | Highlights, accents |
-| **Secondary** | `#28A745` | `--secondary` | Success states, green accents |
-| **Accent** | `#17A2B8` | `--accent` | Supporting highlights |
-| **Text** | `#212529` | `--text` | Primary body text |
-| **Text Light** | `#6c757d` | `--text-light` | Secondary text |
-| **Background** | `#F8F9FA` | `--background` | Page backgrounds |
-| **Dark** | `#1a1a2e` | `--dark` | Dark sections, footer |
-
-### Gradients
-
-```css
---gradient-primary: linear-gradient(135deg, #007BFF 0%, #17A2B8 100%);
---gradient-secondary: linear-gradient(135deg, #28A745 0%, #17A2B8 100%);
---gradient-hero: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%);
-```
+| **Text Main** | `#1A1A1A` | `--text-main` | Primary headings and body |
+| **Text Muted** | `#575757` | `--text-muted` | Secondary descriptions |
+| **Background** | `#FFFFFF` | `--bg-main` | Primary surface |
+| **Soft BG** | `#F9FAFB` | `--bg-soft` | Section alternates |
+| **Primary** | `#007BFF` | `--primary` | Subtle accents and focus |
+| **Border** | `#EDEDED` | `--border-soft` | Soft structural dividers |
 
 ### Typography
-- **Primary Font**: Geist Sans
-- **Monospace Font**: Geist Mono
-- **Fallback**: Inter, system-ui, sans-serif
+- **Headings**: Geist Sans (Extra Bold/Bold)
+- **Body**: Geist Sans (Regular/Medium)
+- **Tracking**: Tight tracking on headings (`-0.02em`) for a modern feel.
 
 ---
 
