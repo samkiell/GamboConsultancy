@@ -23,50 +23,50 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white border-b border-gray-50'} py-3`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white border-b border-gray-50'} py-4`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center">
         
-        {/* Left: Logo */}
-        <div className="flex-1 flex justify-start">
+        {/* Left: Logo - Fixed width to help centering */}
+        <div className="w-[240px] flex justify-start">
           <Link href="/" className="flex items-center">
-            <div className="relative w-44 h-11 md:w-56 md:h-14">
+            <div className="relative w-44 h-10 md:w-52 md:h-12">
               <Image 
                 src="/logo.jpg" 
                 alt="Gambo Consultancy Logo" 
                 fill 
-                className="object-contain" 
+                className="object-contain object-left" 
                 priority
               />
             </div>
           </Link>
         </div>
 
-        {/* Center: Desktop Narvigation Links */}
-        <div className="hidden md:flex items-center justify-center gap-12 flex-1">
+        {/* Center: Desktop Navigation Links */}
+        <div className="hidden md:flex flex-1 items-center justify-center gap-10">
           {links.map((link) => (
             <Link 
               key={link.name} 
               href={link.href} 
-              className="text-[15px] font-semibold text-gray-700 hover:text-[var(--primary)] transition-all relative group"
+              className="text-[15px] font-semibold text-gray-600 hover:text-[var(--primary)] transition-all relative group py-2"
             >
               {link.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all group-hover:w-full"></span>
+              <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </div>
 
-        {/* Right: CTA */}
-        <div className="flex-1 flex justify-end items-center">
+        {/* Right: CTA - Fixed width for symmetry */}
+        <div className="w-[240px] flex justify-end items-center">
           <Link 
             href="/contact" 
-            className="hidden md:block px-10 py-4 bg-[var(--primary)] text-white text-[14px] font-extrabold rounded-full hover:bg-black transition-all shadow-lg transform hover:scale-105 active:scale-95 whitespace-nowrap"
+            className="hidden md:flex items-center justify-center px-8 py-3 bg-[var(--primary)] text-white text-[14px] font-bold rounded-full hover:bg-black hover:shadow-xl transition-all duration-300 transform active:scale-95 whitespace-nowrap"
           >
             Get in Touch
           </Link>
 
           {/* Mobile toggle */}
-          <div className="md:hidden ml-4">
-            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-900">
+          <div className="md:hidden">
+            <button onClick={() => setIsOpen(!isOpen)} className="p-2 text-gray-900 ml-2">
               {isOpen ? <X size={28} /> : <Menu size={28} />}
             </button>
           </div>
