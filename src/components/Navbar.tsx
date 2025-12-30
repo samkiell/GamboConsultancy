@@ -19,7 +19,6 @@ export default function Navbar() {
   const links = [
     { name: 'About Us', href: '/about' },
     { name: 'Services', href: '/services' },
-    { name: 'Contact', href: '/contact' },
   ];
 
   return (
