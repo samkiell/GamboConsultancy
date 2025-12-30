@@ -167,5 +167,5 @@ This project is proprietary and owned by Gambo Consultancy. All rights reserved.
 
 <div align="center">
   <p>Made with ❤️ by <strong>SAMKIEL</strong></p>
-  <p>© 2024 Gambo Consultancy. All rights reserved.</p>
+  <p>© 2026 Gambo Consultancy. All rights reserved.</p>
 </div>
