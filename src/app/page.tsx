@@ -98,7 +98,7 @@ export default function Home() {
                 <div className="relative w-full h-full p-12">
                    <div className="w-full h-full bg-white rounded-xl shadow-sm flex items-center justify-center text-gray-200">
                       <Image 
-                        src="/placeholder-hero.jpg" 
+                        src="/hero-consulting.png" 
                         alt="Consulting Strategy"
                         width={600}
                         height={600}

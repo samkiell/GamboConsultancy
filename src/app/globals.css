@@ -3,6 +3,7 @@
 :root {
   /* Gambo Consultancy Brand Colors */
   --primary: #006837;      /* Precise Dark Green from Logo */
+  --primary-dark: #004d29; /* Darker Green for Hover */
   --primary-light: #8DC63F; /* Vibrant Light Green from Logo */
   --primary-bg: #F0F9F4;
   
