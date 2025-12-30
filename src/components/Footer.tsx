@@ -7,7 +7,8 @@ export default function Footer() {
   
   return (
     <footer className="bg-white border-t border-gray-100 pt-20 pb-10">
-      <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-20">
+    <footer className="bg-white border-t border-gray-100 pt-20 pb-10">
+      <div className="max-w-7xl mx-auto px-6 md:px-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-20">
           <div className="col-span-1 md:col-span-2">
             <Link href="/" className="inline-block mb-8">

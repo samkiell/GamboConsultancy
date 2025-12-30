@@ -24,12 +24,12 @@ export default function Navbar() {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm' : 'bg-white border-b border-gray-50'} py-4`}>
-      <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-20 flex items-center">
+      <div className="max-w-7xl mx-auto px-6 md:px-16 flex items-center justify-between h-auto min-h-[80px]">
         
         {/* Left: Logo - Fixed width to help centering */}
-        <div className="w-[300px] flex justify-start">
+        <div className="flex-shrink-0">
           <Link href="/" className="flex items-center">
-            <div className="relative w-52 h-12 md:w-64 md:h-16">
+            <div className="relative w-40 h-10 md:w-56 md:h-14">
               <Image 
                 src="/logo.jpg" 
                 alt="Gambo Consultancy Logo" 
@@ -42,12 +42,12 @@ export default function Navbar() {
         </div>
 
         {/* Center: Desktop Navigation Links */}
-        <div className="hidden md:flex flex-1 items-center justify-center gap-10">
+        <div className="hidden md:flex items-center gap-12">
           {links.map((link) => (
             <Link 
               key={link.name} 
               href={link.href} 
-              className="text-[16px] font-bold text-gray-700 hover:text-[var(--primary)] transition-all relative group py-2"
+              className="text-[15px] font-medium text-gray-600 hover:text-[var(--primary)] transition-all relative group py-2"
             >
               {link.name}
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-[var(--primary)] transition-all duration-300 group-hover:w-full"></span>
@@ -56,10 +56,10 @@ export default function Navbar() {
         </div>
 
         {/* Right: CTA - Fixed width for symmetry */}
-        <div className="w-[150px] items-right ">
+        <div className="flex items-center gap-4">
           <Link 
             href="/contact" 
-            className="hidden md:flex items-center justify-center px-12 py-4 bg-[var(--primary)] text-white text-[15px] font-extrabold rounded-full hover:bg-black hover:shadow-2xl transition-all duration-300 transform active:scale-95 whitespace-nowrap mr-4"
+            className="hidden md:flex items-center justify-center px-8 py-3 bg-[var(--primary)] text-white text-[14px] font-bold rounded-full hover:bg-[var(--primary-dark)] hover:shadow-lg transition-all duration-300 transform active:scale-95 whitespace-nowrap"
           >
             Get in Touch
           </Link>
