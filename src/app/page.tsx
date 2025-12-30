@@ -39,7 +39,7 @@ export default function Home() {
           - Vertical padding: min 120px desktop (pt-32), 64px mobile (pt-24 to clear nav).
       */}
       <section className="relative pt-32 pb-16 md:pt-48 md:pb-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-24 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
           {/* Left Column: Content */}
           <motion.div 
@@ -52,19 +52,13 @@ export default function Home() {
               Corporate Education & Consulting
             </span>
             
-            {/* Headline: max width 60% relative to container? No, prompt said "Headline max width 60%".
-                In a 2-col layout, the column itself is 50%. 60% of that is too small. 
-                I assume "Headline max width 60%" refers to full width layouts or the visual width.
-                In a 2-col, I will let it fill the column but limit line length if needed.
-                Actually, "Headline max width 60%" usually implies the text shouldn't stretch too wide. 
-                In 2-col, it's naturally constrained. I'll make it bold and large.
-            */}
+            {/* Headline */}
             <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-gray-900 leading-[1.1] mb-6 tracking-tight">
               Empowering <br />
               <span className="text-[var(--primary)]">Education</span> with Strategy.
             </h1>
             
-            {/* Subtext: max width 55% */}
+            {/* Subtext */}
             <p className="text-lg md:text-xl text-gray-500 leading-relaxed mb-10 max-w-lg font-light">
               Gambo Consultancy provides expert solutions, training, and support for schools, parents, and students to achieve sustainable excellence.
             </p>
@@ -109,22 +103,6 @@ export default function Home() {
                         Strategic Vision
                       </div>
                    </div>
-                   {/* Floating Elements for "Dynamic" feel */}
-                   <motion.div 
-                    animate={{ y: [0, -10, 0] }}
-                    transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
-                    className="absolute top-20 right-20 bg-white p-4 rounded-xl shadow-lg border border-gray-100 max-w-[180px]"
-                   >
-                     <div className="flex items-center gap-3 mb-2">
-                       <div className="w-8 h-8 rounded-full bg-green-100 flex items-center justify-center text-green-600">
-                         <CheckCircle size={16} />
-                       </div>
-                       <span className="text-sm font-bold text-gray-800">Verified</span>
-                     </div>
-                     <div className="h-2 w-full bg-gray-100 rounded-full overflow-hidden">
-                       <div className="h-full w-[80%] bg-green-500" />
-                     </div>
-                   </motion.div>
                 </div>
              </div>
           </motion.div>
@@ -132,12 +110,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. Services Preview Section 
-          - Grid of 3 (desktop)
-          - Cards: Internal padding, Rounded, Soft shadow, Icon at top
-      */}
+      {/* 3. Services Preview Section */}
       <section className="py-24 bg-[var(--bg-soft)]">
-        <div className="max-w-7xl mx-auto px-6 md:px-16">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-24 lg:px-32">
           <div className="text-center mb-16 max-w-2xl mx-auto">
             <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4">Our Expertise</h2>
             <p className="text-gray-500 text-lg">Comprehensive consulting solutions tailored to your unique educational needs.</p>
@@ -169,13 +144,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 4. Why Choose Us Section 
-          - Two-column layout
-          - Left: Short text
-          - Right: Checklist
-      */}
+      {/* 4. Why Choose Us Section */}
       <section className="py-24 bg-white">
-        <div className="max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-24 lg:px-32 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           
           {/* Left Text Block */}
           <div>
@@ -208,9 +179,10 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA (Optional but recommended for landing page flow) */}
+      {/* Final CTA */}
       <section className="py-24 bg-[var(--primary)] text-white text-center">
-        <div className="max-w-4xl mx-auto px-6 md:px-16">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-24 lg:px-32">
+
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to elevate your institution?</h2>
           <p className="text-white/80 text-xl mb-10 max-w-2xl mx-auto">
             Book a session with our consultants today.
