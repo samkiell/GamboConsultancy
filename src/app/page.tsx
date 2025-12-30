@@ -120,7 +120,7 @@ export default function Home() {
 
       {/* Why Choose Us & About Combo */}
       <section className="py-24 border-t border-gray-50">
-        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-24 items-center">
+        <div className="max-w-7xl mx-auto px-8 md:px-12 lg:px-20 grid lg:grid-cols-2 gap-24 items-center">
           <div>
             <span className="text-[var(--primary)] font-bold uppercase tracking-widest text-xs mb-4 block">Why Us</span>
             <h2 className="mb-12">Commitment to Excellence.</h2>
@@ -155,7 +155,7 @@ export default function Home() {
 
       {/* Final CTA */}
       <section className="py-24 bg-[var(--primary)] text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
+        <div className="max-w-4xl mx-auto px-8 md:px-12 lg:px-20 text-center">
           <h2 className="text-white mb-6 text-4xl font-extrabold tracking-tight">Ready to elevate your school or career?</h2>
           <p className="text-white/80 text-xl mb-12">Connect with our consultants today for a strategic advisory session.</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
