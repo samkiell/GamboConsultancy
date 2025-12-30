@@ -103,12 +103,23 @@ export default function Home() {
       </section>
 
       {/* 3. Services Preview Section */}
-      <section className="py-24 bg-[var(--bg-soft)]">
-        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16">
-          <div className="text-center mb-20 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-6">Our Expertise</h2>
-            <p className="text-gray-500 text-lg">
-              Explore our core services designed to assist schools, parents, and students in navigating the educational landscape.
+      <section className="py-24 relative overflow-hidden bg-gradient-to-b from-gray-50 to-white" id="expertise">
+        {/* Decorative Background Elements */}
+        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+           <div className="absolute -top-[20%] -right-[10%] w-[500px] h-[500px] bg-[var(--primary-light)]/10 rounded-full blur-3xl opacity-50" />
+           <div className="absolute top-[40%] -left-[10%] w-[400px] h-[400px] bg-[var(--primary)]/5 rounded-full blur-3xl opacity-50" />
+        </div>
+
+        <div className="max-w-6xl mx-auto px-6 md:px-12 lg:px-16 relative z-10">
+          <div className="text-center mb-20 max-w-3xl mx-auto">
+            <span className="text-[var(--primary-light)] font-bold tracking-widest text-sm uppercase mb-4 block">
+              Our Expertise
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+              Excellence in <span className="text-[var(--primary)]">Education</span> & Technology.
+            </h2>
+            <p className="text-gray-500 text-lg leading-relaxed">
+              We bridge the gap between traditional education and modern technology, providing tailored solutions that drive growth and efficiency.
             </p>
           </div>
 
@@ -120,23 +131,29 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white p-8 md:p-10 rounded-2xl border border-gray-100 shadow-[0_2px_8px_-2px_rgba(0,0,0,0.05)] hover:shadow-[0_12px_24px_-8px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full"
+                className="group relative bg-white rounded-2xl p-8 border border-gray-100 shadow-sm hover:shadow-2xl transition-all duration-300 hover:-translate-y-1"
               >
-                {/* Clean Icon Style - No Box */}
-                <div className="mb-6 text-[var(--primary)] group-hover:scale-110 transition-transform origin-left duration-300">
-                  <service.icon size={48} strokeWidth={1.5} />
+                {/* Hover Accent Line */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[var(--primary)] to-[var(--primary-light)] transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
+                
+                {/* Icon with soft background */}
+                <div className="mb-8 relative inline-block">
+                   <div className="absolute inset-0 bg-[var(--primary-light)]/20 rounded-xl transform rotate-6 group-hover:rotate-12 transition-transform duration-300" />
+                   <div className="relative bg-[var(--primary-bg)] w-16 h-16 flex items-center justify-center rounded-xl text-[var(--primary)] group-hover:bg-[var(--primary)] group-hover:text-white transition-colors duration-300 shadow-sm">
+                     <service.icon size={32} strokeWidth={1.5} />
+                   </div>
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-[var(--primary)] transition-colors">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-[var(--primary)] transition-colors">
                   {service.title}
                 </h3>
                 
-                <p className="text-gray-500 leading-relaxed mb-8 flex-grow">
+                <p className="text-gray-500 leading-relaxed mb-8">
                   {service.desc}
                 </p>
                 
-                <div className="mt-auto pt-6 border-t border-gray-50">
-                   <Link href="/services" className="inline-flex items-center gap-2 text-[var(--primary)] font-semibold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
+                <div className="mt-auto">
+                   <Link href="/services" className="inline-flex items-center gap-2 text-[var(--primary)] font-bold text-sm uppercase tracking-wider group-hover:gap-3 transition-all">
                      Learn More <ArrowRight size={16} />
                    </Link>
                 </div>
