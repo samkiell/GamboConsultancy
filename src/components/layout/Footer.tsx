@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, MapPin, Phone, Instagram } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -106,6 +106,17 @@ export function Footer() {
                   className="text-white hover:text-white transition-colors"
                 >
                   @omobolagambo
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Facebook className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
+                <a 
+                  href="https://www.facebook.com/omobola.adeleke" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  Omobola Adeleke
                 </a>
               </div>
             </div>
