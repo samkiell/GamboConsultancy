@@ -30,7 +30,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-serif font-bold tracking-tight mb-6 leading-tight text-white">
               Gambo Consultancy
             </h1>
-            <p className="text-xl md:text-2xl text-gray-200 mb-10 font-light leading-relaxed">
+            <p className="text-xl md:text-2xl text-white mb-10 font-light leading-relaxed">
               Empowering organizations and individuals through expert guidance in education, leadership, and technology.
             </p>
             <div className="flex flex-wrap gap-4">
@@ -173,7 +173,7 @@ export default function Home() {
           className="max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Future?</h2>
-          <p className="text-xl text-gray-200 mb-10">
+          <p className="text-xl text-white mb-10">
             Schedule a consultation today and take the first step towards achieving your strategic goals.
           </p>
           <Link href="/contact">
