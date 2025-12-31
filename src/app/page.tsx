@@ -1,17 +1,25 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { ArrowRight, BookOpen, Cpu, Users, GraduationCap, Heart, CheckCircle2 } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { Section } from '@/components/layout/Section';
+import Link from "next/link";
+import { motion } from "framer-motion";
+import {
+  ArrowRight,
+  BookOpen,
+  Cpu,
+  Users,
+  GraduationCap,
+  Heart,
+  CheckCircle2,
+} from "lucide-react";
+import { Button } from "@/components/ui/Button";
+import { Card } from "@/components/ui/Card";
+import { Section } from "@/components/layout/Section";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
-  transition: { duration: 0.6 }
+  transition: { duration: 0.6 },
 };
 
 export default function Home() {
@@ -21,7 +29,7 @@ export default function Home() {
       <section className="relative bg-brand-primary text-white py-24 md:py-32 overflow-hidden">
         <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -31,7 +39,8 @@ export default function Home() {
               Gambo Consultancy
             </h1>
             <p className="text-xl md:text-2xl !text-white mb-10 font-normal leading-relaxed">
-              Empowering organizations and individuals through expert guidance in education, leadership, and technology.
+              Empowering organizations and individuals through expert guidance
+              in education, leadership, and technology.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link href="/contact">
@@ -40,7 +49,11 @@ export default function Home() {
                 </Button>
               </Link>
               <Link href="/about">
-                <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-white text-white hover:bg-white/10"
+                >
                   Learn More
                 </Button>
               </Link>
@@ -52,12 +65,16 @@ export default function Home() {
       {/* About Summary */}
       <Section background="white">
         <motion.div {...fadeInUp} className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl font-bold mb-6 text-brand-primary">Strategic Guidance for a Complex World</h2>
+          <h2 className="text-3xl font-bold mb-6 text-brand-primary">
+            Strategic Guidance for a Complex World
+          </h2>
           <p className="text-lg text-text-muted leading-relaxed">
-            Gambo Consultancy is a premier firm dedicated to bridging the gap between potential and performance. 
-            With a foundation built on academic rigor and professional integrity, we provide tailored solutions 
-            that drive meaningful growth. Whether you are an educational institution, a business leader, or 
-            an individual seeking direction, our multidisciplinary team is here to guide you.
+            Gambo Consultancy is a premier firm dedicated to bridging the gap
+            between potential and performance. With a foundation built on
+            academic rigor and professional integrity, we provide tailored
+            solutions that drive meaningful growth. Whether you are an
+            educational institution, a business leader, or an individual seeking
+            direction, our multidisciplinary team is here to guide you.
           </p>
         </motion.div>
       </Section>
@@ -65,41 +82,44 @@ export default function Home() {
       {/* Core Departments */}
       <Section background="accent">
         <motion.div {...fadeInUp} className="mb-12 text-center">
-          <h2 className="text-3xl font-bold text-brand-primary mb-4">Our Core Departments</h2>
+          <h2 className="text-3xl font-bold text-brand-primary mb-4">
+            Our Core Departments
+          </h2>
           <p className="text-text-muted max-w-2xl mx-auto">
-            Comprehensive expertise across five specialized pillars of consultancy.
+            Comprehensive expertise across five specialized pillars of
+            consultancy.
           </p>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {[
             {
-              title: 'Educational Consultancy',
+              title: "Educational Consultancy",
               icon: GraduationCap,
-              desc: 'Curriculum development, institutional accreditation support, and strategic academic planning.'
+              desc: "Curriculum development, institutional accreditation support, and strategic academic planning.",
             },
             {
-              title: 'IT Consultancy',
+              title: "IT Consultancy",
               icon: Cpu,
-              desc: 'Digital transformation strategies, systems integration, and technology infrastructure optimization.'
+              desc: "Digital transformation strategies, systems integration, and technology infrastructure optimization.",
             },
             {
-              title: 'Leadership Consultancy',
+              title: "Leadership Consultancy",
               icon: Users,
-              desc: 'Executive coaching, organizational culture development, and high-performance team building.'
+              desc: "Executive coaching, organizational culture development, and high-performance team building.",
             },
             {
-              title: 'Mentorship Consultancy',
+              title: "Mentorship Consultancy",
               icon: BookOpen,
-              desc: 'Structured mentorship programs for career advancement and professional skill acquisition.'
+              desc: "Structured mentorship programs for career advancement and professional skill acquisition.",
             },
             {
-              title: 'Life Coaching Consultancy',
+              title: "Life Coaching Consultancy",
               icon: Heart,
-              desc: 'Holistic personal development strategies to achieve work-life balance and personal fulfillment.'
-            }
+              desc: "Holistic personal development strategies to achieve work-life balance and personal fulfillment.",
+            },
           ].map((dept, index) => (
-            <motion.div 
+            <motion.div
               key={dept.title}
               {...fadeInUp}
               transition={{ delay: index * 0.1, duration: 0.5 }}
@@ -108,12 +128,17 @@ export default function Home() {
                 <div className="h-12 w-12 bg-brand-accent rounded-lg flex items-center justify-center mb-6 text-brand-primary">
                   <dept.icon className="h-6 w-6" />
                 </div>
-                <h3 className="text-xl font-bold text-brand-primary mb-3">{dept.title}</h3>
+                <h3 className="text-xl font-bold text-brand-primary mb-3">
+                  {dept.title}
+                </h3>
                 <p className="text-text-muted mb-6 flex-grow">{dept.desc}</p>
                 <div className="mt-auto pt-4 border-t border-gray-50">
-                   <Link href="/services" className="inline-flex items-center text-brand-primary font-medium hover:underline">
+                  <Link
+                    href="/services"
+                    className="inline-flex items-center text-brand-primary font-medium hover:underline"
+                  >
                     Explore Services <ArrowRight className="ml-2 h-4 w-4" />
-                   </Link>
+                  </Link>
                 </div>
               </Card>
             </motion.div>
@@ -125,16 +150,19 @@ export default function Home() {
       <Section background="white">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div {...fadeInUp}>
-            <h2 className="text-3xl font-bold text-brand-primary mb-6">Why Choose Gambo Consultancy?</h2>
+            <h2 className="text-3xl font-bold text-brand-primary mb-6">
+              Why Choose Gambo Consultancy?
+            </h2>
             <p className="text-text-muted mb-8 text-lg">
-              We define success by the measurable impact we create for our clients. Our approach is rooted in:
+              We define success by the measurable impact we create for our
+              clients. Our approach is rooted in:
             </p>
             <ul className="space-y-4">
               {[
-                'Evidence-based methodologies and academic credibility',
-                'A holistic approach to organizational and personal growth',
-                'Unwavering commitment to professional ethics and integrity',
-                'Tailored strategies that address your unique challenges'
+                "Evidence-based methodologies and academic credibility",
+                "A holistic approach to organizational and personal growth",
+                "Unwavering commitment to professional ethics and integrity",
+                "Tailored strategies that address your unique challenges",
               ].map((item) => (
                 <li key={item} className="flex items-start">
                   <CheckCircle2 className="h-6 w-6 text-brand-primary mr-3 flex-shrink-0" />
@@ -148,17 +176,21 @@ export default function Home() {
               </Link>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
             className="bg-brand-accent p-10 rounded-2xl border border-gray-200"
           >
-            <h3 className="text-2xl font-bold text-brand-primary mb-4">Our Promise</h3>
+            <h3 className="text-2xl font-bold text-brand-primary mb-4">
+              Our Promise
+            </h3>
             <blockquote className="text-lg italic text-text-muted border-l-4 border-brand-primary pl-4 my-6">
-              "To serve as a trusted partner in your journey towards excellence, providing the clarity and expertise needed to navigate change."
+              &quot;To serve as a trusted partner in your journey towards
+              excellence, providing the clarity and expertise needed to navigate
+              change.&quot;
             </blockquote>
           </motion.div>
         </div>
@@ -166,15 +198,18 @@ export default function Home() {
 
       {/* CTA Section */}
       <Section background="primary" className="text-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           className="max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">Ready to Transform Your Future?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-white">
+            Ready to Transform Your Future?
+          </h2>
           <p className="text-xl !text-white mb-10">
-            Schedule a consultation today and take the first step towards achieving your strategic goals.
+            Schedule a consultation today and take the first step towards
+            achieving your strategic goals.
           </p>
           <Link href="/contact">
             <Button variant="secondary" size="lg" className="min-w-[200px]">
