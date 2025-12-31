@@ -76,7 +76,7 @@ export default function AboutPage() {
                   alt="Dr. Omobola Gambo, Co-consultant & Educational Manager"
                   width={400}
                   height={500}
-                  className="rounded-lg shadow-sm w-full h-auto object-cover"
+                  className="rounded-lg shadow-sm w-full max-w-sm h-auto object-cover"
                 />
                 <div className="mt-4">
                   <h3 className="text-xl font-bold text-brand-primary">
