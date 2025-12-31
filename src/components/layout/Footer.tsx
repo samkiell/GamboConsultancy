@@ -172,7 +172,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-white hover:text-white transition-colors"
                 >
-                  Omobola Adeleke
+                  Facebook
                 </a>
               </div>
               <div className="flex items-center">
@@ -183,7 +183,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-white hover:text-white transition-colors"
                 >
-                  Prof. Dr. Ishaya Gambo
+                  Prof. Ishaya Gambo
                 </a>
               </div>
             </div>
