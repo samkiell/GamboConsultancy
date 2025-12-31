@@ -21,17 +21,17 @@ export function Footer() {
             <h4 className="text-lg font-semibold text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/about" className="text-gray-100 hover:text-white transition-colors">
+                <Link href="/about" className="text-white hover:text-white transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-100 hover:text-white transition-colors">
+                <Link href="/services" className="text-white hover:text-white transition-colors">
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-100 hover:text-white transition-colors">
+                <Link href="/contact" className="text-white hover:text-white transition-colors">
                   Contact
                 </Link>
               </li>
@@ -48,7 +48,7 @@ export function Footer() {
                   href="https://maps.google.com/?q=Road+2,+ICT+Centre,+Centre+of+Excellence+in+Software+Engineering,+Obafemi+Awolowo+University,+Ile-Ife,+22028,+Osun+State"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-100 hover:text-white transition-colors"
+                  className="text-white hover:text-white transition-colors"
                 >
                   Road 2, ICT Centre, Centre of Excellence in Software Engineering,<br />
                   Obafemi Awolowo University, Ile-Ife, 22028, Osun State.
@@ -56,7 +56,7 @@ export function Footer() {
               </div>
               <div className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
-                <div className="text-gray-100 flex flex-col space-y-1">
+                <div className="text-white flex flex-col space-y-1">
                   <a href="tel:+2347034966376" className="hover:text-white transition-colors">+234 703 496 6376</a>
                   <a href="tel:+2349069212785" className="hover:text-white transition-colors">+234 906 921 2785</a>
                   <a href="tel:+2348036574935" className="hover:text-white transition-colors">+234 803 657 4935</a>
@@ -66,7 +66,7 @@ export function Footer() {
                 <Mail className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
                 <a 
                   href="mailto:gamboconsultancy@gmail.com" 
-                  className="text-gray-100 hover:text-white transition-colors"
+                  className="text-white hover:text-white transition-colors"
                 >
                   gamboconsultancy@gmail.com
                 </a>
