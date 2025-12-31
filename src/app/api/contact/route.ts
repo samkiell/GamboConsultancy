@@ -23,7 +23,7 @@ export async function POST(request: Request) {
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Department:</strong> ${department || 'Unspecified'}</p>
+        <p><strong>Booked Service:</strong> ${department || 'Unspecified'}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
