@@ -21,7 +21,7 @@ export default function AboutPage() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-5xl font-serif font-bold mb-6"
+            className="text-4xl md:text-5xl text-white font-bold mb-6"
           >
             About Gambo Consultancy
           </motion.h1>
@@ -42,7 +42,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
             {/* Founder Image */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -59,17 +59,18 @@ export default function AboutPage() {
                   priority
                 />
                 <div className="mt-4">
-                  <h3 className="text-xl font-bold text-brand-primary">Dr. Gambo</h3>
-                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">Founder & Lead Consultant</p>
+                  <h3 className="text-xl font-bold text-brand-primary">
+                    Dr. Gambo
+                  </h3>
+                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">
+                    Founder & Lead Consultant
+                  </p>
                 </div>
               </div>
             </motion.div>
 
             {/* Narrative Content */}
-            <motion.div 
-              {...fadeInUp} 
-              className="md:col-span-7 lg:col-span-8"
-            >
+            <motion.div {...fadeInUp} className="md:col-span-7 lg:col-span-8">
               <h2 className="text-3xl font-bold text-brand-primary mb-6">
                 About Gambo Consultancy
               </h2>
@@ -77,23 +78,25 @@ export default function AboutPage() {
                 <p className="mb-6">
                   Welcome to Gambo Consultancy, a premier management consultancy
                   firm dedicated to empowering organisations, educational
-                  institutions, and individuals to achieve unparalleled success. We
-                  provide expert analysis, strategic solutions, and transformative
-                  capacity-building initiatives across a diverse range of sectors.
-                  By partnering with us, our clients gain the insight and tools
-                  necessary to improve performance, drive efficiency, and navigate
-                  the complexities of the modern world. Whether you are a business
-                  aiming for market leadership, an educational institution fostering
-                  future generations, or an individual striving for personal growth,
-                  we are your trusted partner in achieving excellence.
+                  institutions, and individuals to achieve unparalleled success.
+                  We provide expert analysis, strategic solutions, and
+                  transformative capacity-building initiatives across a diverse
+                  range of sectors. By partnering with us, our clients gain the
+                  insight and tools necessary to improve performance, drive
+                  efficiency, and navigate the complexities of the modern world.
+                  Whether you are a business aiming for market leadership, an
+                  educational institution fostering future generations, or an
+                  individual striving for personal growth, we are your trusted
+                  partner in achieving excellence.
                 </p>
                 <p className="mb-6">
-                  We combine deep industry knowledge with practical strategies to
-                  deliver measurable results. We tailor our services to the unique
-                  needs of each client, ensuring that every initiative drives
-                  growth, fosters innovation, and strengthens capabilities. With
-                  Gambo Consultancy as your partner, you gain not just advice, but
-                  actionable solutions that make a lasting impact.
+                  We combine deep industry knowledge with practical strategies
+                  to deliver measurable results. We tailor our services to the
+                  unique needs of each client, ensuring that every initiative
+                  drives growth, fosters innovation, and strengthens
+                  capabilities. With Gambo Consultancy as your partner, you gain
+                  not just advice, but actionable solutions that make a lasting
+                  impact.
                 </p>
               </div>
             </motion.div>
