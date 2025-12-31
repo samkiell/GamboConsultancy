@@ -122,7 +122,7 @@ export default function ContactPage() {
                     id="name"
                     type="text"
                     className="w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary border px-4 py-2"
-                    placeholder="John Doe"
+                    placeholder="Zabdiel Anyaogu"
                     {...register("name", { required: "Name is required" })}
                   />
                   {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name.message}</p>}
@@ -134,7 +134,7 @@ export default function ContactPage() {
                     id="email"
                     type="email"
                     className="w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary border px-4 py-2"
-                    placeholder="john@example.com"
+                    placeholder="zabdielanyaogu@gmail.com"
                     {...register("email", { 
                       required: "Email is required",
                       pattern: {
