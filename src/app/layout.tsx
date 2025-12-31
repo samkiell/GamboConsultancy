@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: 'Gambo Consultancy | Professional Educational & Leadership Consulting',
   description: 'Expert guidance in Education, IT, Leadership, Mentorship, and Life Coaching. Professional consultancy for growth and excellence.',
   icons: {
-    icon: '/logo.jpg',
+    icon: '/favicon.png',
   },
 };
 
