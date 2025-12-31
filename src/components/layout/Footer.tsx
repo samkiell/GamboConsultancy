@@ -10,6 +10,24 @@ import {
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const links = [
+    {
+      name: "About Us",
+      href: "/about",
+    },
+    {
+      name: "Our Services",
+      href: "/services",
+    },
+    {
+      name: "Contact",
+      href: "/contact",
+    },
+    {
+      name: "Terms & Conditions",
+      href: "/terms-and-conditions",
+    },
+  ];
 
   return (
     <footer className="bg-brand-primary text-white py-12 border-t border-brand-primary-light">
@@ -17,7 +35,7 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand & Info */}
           <div className="space-y-4">
-            <h3 className="text-2xl font-serif font-bold tracking-tight">
+            <h3 className="text-2xl font-serif font-bold text-white  tracking-tight">
               Gambo Consultancy
             </h3>
             <p className="text-white max-w-sm">
@@ -30,38 +48,18 @@ export function Footer() {
           <div className="space-y-4">
             <h4 className="text-lg font-semibold text-white">Quick Links</h4>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/about"
-                  className="text-white hover:text-white transition-colors"
-                >
-                  About Us
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="text-white hover:text-white transition-colors"
-                >
-                  Our Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="text-white hover:text-white transition-colors"
-                >
-                  Contact
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/terms-and-conditions"
-                  className="text-white hover:text-white transition-colors"
-                >
-                  Terms & Conditions
-                </Link>
-              </li>
+              {links.map((link) => {
+                return (
+                  <li key={link.name}>
+                    <Link
+                      href={link.href}
+                      className="text-white hover:text-white transition-colors"
+                    >
+                      {link.name}
+                    </Link>
+                  </li>
+                );
+              })}
             </ul>
           </div>
 

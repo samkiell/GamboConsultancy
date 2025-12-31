@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Section } from "@/components/layout/Section";
 import { CheckCircle } from "lucide-react";
+import Link from "next/link";
 
 const fadeInUp = {
   initial: { opacity: 0, y: 20 },
@@ -51,8 +52,15 @@ const terms = [
   {
     number: 7,
     title: "Contact Us",
-    content:
-      "For questions or clarifications regarding these terms, please contact us at gamboconsultancy@gmail.com.",
+    content: (
+      <>
+        For questions or clarifications regarding these terms, please{" "}
+        <Link href="/contact" className="text-brand-primary underline">
+          contact us
+        </Link>
+        .
+      </>
+    ),
   },
 ];
 
