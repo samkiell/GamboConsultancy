@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { Mail, MapPin, Phone } from "lucide-react";
+import Link from 'next/link';
+import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -79,24 +79,9 @@ export function Footer() {
               <div className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
                 <div className="text-white flex flex-col space-y-1">
-                  <a
-                    href="tel:+2347034966376"
-                    className="hover:text-white transition-colors"
-                  >
-                    +234 703 496 6376
-                  </a>
-                  <a
-                    href="tel:+2349069212785"
-                    className="hover:text-white transition-colors"
-                  >
-                    +234 906 921 2785
-                  </a>
-                  <a
-                    href="tel:+2348036574935"
-                    className="hover:text-white transition-colors"
-                  >
-                    +234 803 657 4935
-                  </a>
+                  <a href="tel:+2347034966376" className="hover:text-white transition-colors">+234 703 496 6376</a>
+                  <a href="tel:+2349069212785" className="hover:text-white transition-colors">+234 906 921 2785</a>
+                  <a href="tel:+2348036574935" className="hover:text-white transition-colors">+234 803 657 4935</a>
                 </div>
               </div>
               <div className="flex items-center">
@@ -108,6 +93,39 @@ export function Footer() {
                   gamboconsultancy@gmail.com
                 </a>
               </div>
+              <div className="flex items-center">
+                <Instagram className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
+                <a
+                  href="https://www.instagram.com/omobolagambo/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  @omobolagambo
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Facebook className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
+                <a
+                  href="https://www.facebook.com/omobola.adeleke"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  Omobola Adeleke
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Linkedin className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
+                <a
+                  href="https://www.linkedin.com/in/ishaya-gambo-bab72776/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  Ishaya Gambo
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -117,7 +135,7 @@ export function Footer() {
             &copy; {currentYear} Gambo Consultancy. All rights reserved.
           </p>
           <p className="!text-white">
-            Designed and developed by{" "}
+            Designed and developed by{' '}
             <a
               href="https://samkiel.dev"
               target="_blank"
