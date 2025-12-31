@@ -28,7 +28,7 @@ export default function AboutPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-200 max-w-3xl mx-auto"
+            className="text-xl text-white max-w-3xl mx-auto"
           >
             A legacy of excellence defined by academic rigor, professional
             integrity, and transformative guidance.
