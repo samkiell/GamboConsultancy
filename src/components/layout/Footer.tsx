@@ -80,6 +80,15 @@ export function Footer() {
           <p className="!text-white">
             Designed and developed by{' '}
             <a 
+              href="https://prime-codes.vercel.app/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-semibold hover:text-brand-accent transition-colors"
+            >
+              PRIME
+            </a>
+            {' & '}
+            <a 
               href="https://samkiel.dev" 
               target="_blank" 
               rel="noopener noreferrer" 
