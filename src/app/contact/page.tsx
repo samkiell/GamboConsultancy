@@ -292,6 +292,12 @@ export default function ContactPage() {
                   )}
                 </div>
 
+                {submissionError && (
+                  <p className="text-red-500 text-center text-sm mb-4">
+                    {submissionError}
+                  </p>
+                )}
+
                 <Button
                   type="submit"
                   variant="primary"
