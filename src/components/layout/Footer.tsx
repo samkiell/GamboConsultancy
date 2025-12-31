@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, MapPin, Phone, Instagram, Facebook } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -117,6 +117,17 @@ export function Footer() {
                   className="text-white hover:text-white transition-colors"
                 >
                   Omobola Adeleke
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Linkedin className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
+                <a 
+                  href="https://www.linkedin.com/in/ishaya-gambo-bab72776/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  Ishaya Gambo
                 </a>
               </div>
             </div>
