@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, MapPin, Phone } from 'lucide-react';
+import { Mail, MapPin, Phone, Instagram } from 'lucide-react';
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -95,6 +95,17 @@ export function Footer() {
                   className="text-white hover:text-white transition-colors"
                 >
                   gamboconsultancy@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center">
+                <Instagram className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
+                <a 
+                  href="https://www.instagram.com/omobolagambo/" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white hover:text-white transition-colors"
+                >
+                  @omobolagambo
                 </a>
               </div>
             </div>
