@@ -53,10 +53,15 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-text-main mb-1">Office Location</h3>
-                  <p className="text-text-muted">
+                  <a 
+                    href="https://maps.google.com/?q=Road+2,+ICT+Centre,+Centre+of+Excellence+in+Software+Engineering,+Obafemi+Awolowo+University,+Ile-Ife,+22028,+Osun+State"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-text-muted hover:text-brand-primary transition-colors"
+                  >
                     Road 2, ICT Centre, Centre of Excellence in Software Engineering,<br />
                     Obafemi Awolowo University, Ile-Ife, 22028, Osun State.
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -66,7 +71,9 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-text-main mb-1">Email Support</h3>
-                  <p className="text-text-muted">gamboconsultancy@gmail.com</p>
+                  <a href="mailto:gamboconsultancy@gmail.com" className="text-text-muted hover:text-brand-primary transition-colors">
+                    gamboconsultancy@gmail.com
+                  </a>
                 </div>
               </div>
 
@@ -76,9 +83,11 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-text-main mb-1">Phone / WhatsApp</h3>
-                  <p className="text-text-muted">+234 703 496 6376</p>
-                  <p className="text-text-muted">+234 906 921 2785</p>
-                  <p className="text-text-muted">+234 803 657 4935</p>
+                  <div className="flex flex-col space-y-1">
+                    <a href="tel:+2347034966376" className="text-text-muted hover:text-brand-primary transition-colors">+234 703 496 6376</a>
+                    <a href="tel:+2349069212785" className="text-text-muted hover:text-brand-primary transition-colors">+234 906 921 2785</a>
+                    <a href="tel:+2348036574935" className="text-text-muted hover:text-brand-primary transition-colors">+234 803 657 4935</a>
+                  </div>
                 </div>
               </div>
             </div>

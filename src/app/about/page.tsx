@@ -65,7 +65,7 @@ export default function AboutPage() {
               actionable solutions that make a lasting impact.
             </p>
           </div>
-        </div>
+        </motion.div>
       </Section>
 
       {/* Mission & Vision */}
