@@ -196,6 +196,71 @@ export default function Home() {
         </div>
       </Section>
 
+      {/* Testimonials Section */}
+      <Section background="accent">
+        <div className="max-w-7xl mx-auto">
+          <motion.div {...fadeInUp} className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-brand-primary">
+              What Our Partners Say
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 justify-center">
+            {[
+              {
+                text: "Gambo Consultancy provided the strategic clarity we needed to restructure our academic programs effectively.",
+                name: "Dr. David O.",
+                role: "Dean of Academics",
+              },
+              {
+                text: "Their IT consultancy services played a pivotal role in modernizing our digital infrastructure.",
+                name: "Sarah J.",
+                role: "Chief Technology Officer",
+              },
+              {
+                text: "The leadership coaching sessions were transformative for our executive team's performance.",
+                name: "Michael A.",
+                role: "Managing Director",
+              },
+              {
+                text: "I gained invaluable career insights through their structured mentorship program.",
+                name: "Grace E.",
+                role: "Graduate Student",
+              },
+              {
+                text: "Professional, insightful, and thoroughly dedicated to excellence. Highly recommended.",
+                name: "Prof. Samuel K.",
+                role: "University Administrator",
+              },
+            ].map((testimonial, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.5 }}
+                className="bg-white p-8 rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
+              >
+                <div className="flex flex-col h-full">
+                  <p className="text-brand-primary text-lg italic mb-6 leading-relaxed font-light">
+                    &quot;{testimonial.text}&quot;
+                  </p>
+                  <div className="mt-auto">
+                    <p className="font-bold text-brand-primary">
+                      {testimonial.name}
+                    </p>
+                    <p className="text-sm text-text-muted mt-1 font-medium">
+                      {testimonial.role}
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+      </Section>
+
       {/* CTA Section */}
       <Section background="primary" className="text-center">
         <motion.div
