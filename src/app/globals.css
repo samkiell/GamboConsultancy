@@ -3,21 +3,21 @@
 :root {
   /* Gambo Consultancy Design System */
   
-  /* Primary: Deep Green */
-  --color-primary: #103927;
-  --color-primary-light: #1B5E41; /* For hover states */
+  /* Primary: Modern Corporate Green */
+  --color-primary: #15803D; /* Lighter, modern green (emerald-700 equivalent) */
+  --color-primary-light: #166534; /* Slightly darker for hover states (emerald-800) */
 
   /* Secondary: White */
   --color-secondary: #ffffff;
 
   /* Accent: Light Gray */
-  --color-accent: #F3F4F6;
+  --color-accent: #F9FAFB; /* Lighter gray for cleaner look */
   --color-accent-dark: #E5E7EB;
 
   /* Typography Colors */
   --color-text-main: #111827;
-  --color-text-muted: #4B5563;
-  --color-text-light: #9CA3AF;
+  --color-text-muted: #374151; /* Darkened slightly for better readability on light backgrounds */
+  --color-text-light: #6B7280;
   
   /* Backgrounds */
   --background: #ffffff;

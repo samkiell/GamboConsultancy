@@ -54,8 +54,8 @@ export default function ContactPage() {
                 <div>
                   <h3 className="text-lg font-semibold text-text-main mb-1">Office Location</h3>
                   <p className="text-text-muted">
-                    123 Corporate Plaza, Suite 400<br />
-                    Business District, NY 10001
+                    Road 2, ICT Centre, Centre of Excellence in Software Engineering,<br />
+                    Obafemi Awolowo University, Ile-Ife, 22028, Osun State.
                   </p>
                 </div>
               </div>
@@ -66,8 +66,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <h3 className="text-lg font-semibold text-text-main mb-1">Email Support</h3>
-                  <p className="text-text-muted">contact@gamboconsultancy.com</p>
-                  <p className="text-text-muted">consult@gamboconsultancy.com</p>
+                  <p className="text-text-muted">gamboconsultancy@gmail.com</p>
                 </div>
               </div>
 
@@ -76,9 +75,10 @@ export default function ContactPage() {
                   <Phone className="h-5 w-5" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold text-text-main mb-1">Phone</h3>
-                  <p className="text-text-muted">+1 (555) 123-4567</p>
-                  <p className="text-text-muted text-sm mt-1">Mon-Fri 9am-6pm EST</p>
+                  <h3 className="text-lg font-semibold text-text-main mb-1">Phone / WhatsApp</h3>
+                  <p className="text-text-muted">+234 703 496 6376</p>
+                  <p className="text-text-muted">+234 906 921 2785</p>
+                  <p className="text-text-muted">+234 803 657 4935</p>
                 </div>
               </div>
             </div>

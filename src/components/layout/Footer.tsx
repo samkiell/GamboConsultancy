@@ -40,22 +40,26 @@ export function Footer() {
 
           {/* Contact Details */}
           <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-gray-100">Contact Documentation</h4>
+            <h4 className="text-lg font-semibold text-gray-100">Contact Us</h4>
             <div className="space-y-3">
               <div className="flex items-start">
-                <MapPin className="h-5 w-5 mr-3 text-brand-accent mt-0.5" />
+                <MapPin className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
                 <span className="text-gray-300">
-                  123 Corporate Plaza, Suite 400<br />
-                  Business District, NY 10001
+                  Road 2, ICT Centre, Centre of Excellence in Software Engineering,<br />
+                  Obafemi Awolowo University, Ile-Ife, 22028, Osun State.
                 </span>
               </div>
-              <div className="flex items-center">
-                <Phone className="h-5 w-5 mr-3 text-brand-accent" />
-                <span className="text-gray-300">+1 (555) 123-4567</span>
+              <div className="flex items-start">
+                <Phone className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
+                <div className="text-gray-300 flex flex-col">
+                  <span>+234 703 496 6376</span>
+                  <span>+234 906 921 2785</span>
+                  <span>+234 803 657 4935</span>
+                </div>
               </div>
               <div className="flex items-center">
-                <Mail className="h-5 w-5 mr-3 text-brand-accent" />
-                <span className="text-gray-300">contact@gamboconsultancy.com</span>
+                <Mail className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
+                <span className="text-gray-300">gamboconsultancy@gmail.com</span>
               </div>
             </div>
           </div>

@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
+import Image from 'next/image';
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,8 +22,15 @@ export function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="text-2xl font-serif font-bold text-brand-primary tracking-tight">
-              Gambo Consultancy
+            <Link href="/" className="flex items-center">
+              <Image 
+                src="/logo.svg" 
+                alt="Gambo Consultancy" 
+                width={200} 
+                height={50} 
+                priority
+                className="h-10 w-auto" 
+              />
             </Link>
           </div>
 
