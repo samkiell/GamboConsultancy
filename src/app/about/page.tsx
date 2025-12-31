@@ -47,8 +47,9 @@ export default function AboutPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="md:col-span-5 lg:col-span-4"
+              className="md:col-span-5 lg:col-span-4 space-y-12"
             >
+              {/* Prof. Ishaya Gambo */}
               <div className="relative">
                 <Image
                   src="/Dr. Gambo.jpg"
@@ -59,8 +60,31 @@ export default function AboutPage() {
                   priority
                 />
                 <div className="mt-4">
-                  <h3 className="text-xl font-bold text-brand-primary">Prof. Ishaya Gambo</h3>
-                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">Lead Consultant</p>
+                  <h3 className="text-xl font-bold text-brand-primary">
+                    Prof. Ishaya Gambo
+                  </h3>
+                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">
+                    Lead Consultant
+                  </p>
+                </div>
+              </div>
+
+              {/* Dr. Omobola Gambo */}
+              <div className="relative">
+                <Image
+                  src="/Dr. Omobola Gambo.jpg"
+                  alt="Dr. Omobola Gambo, Co-consultant & Educational Manager"
+                  width={400}
+                  height={500}
+                  className="rounded-lg shadow-sm w-full h-auto object-cover"
+                />
+                <div className="mt-4">
+                  <h3 className="text-xl font-bold text-brand-primary">
+                    Dr. Omobola Gambo
+                  </h3>
+                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">
+                    Co-consultant & Educational Manager
+                  </p>
                 </div>
               </div>
             </motion.div>
