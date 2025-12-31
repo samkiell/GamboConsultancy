@@ -44,29 +44,50 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
-                <span className="text-gray-100">
+                <a 
+                  href="https://maps.google.com/?q=Road+2,+ICT+Centre,+Centre+of+Excellence+in+Software+Engineering,+Obafemi+Awolowo+University,+Ile-Ife,+22028,+Osun+State"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-100 hover:text-white transition-colors"
+                >
                   Road 2, ICT Centre, Centre of Excellence in Software Engineering,<br />
                   Obafemi Awolowo University, Ile-Ife, 22028, Osun State.
-                </span>
+                </a>
               </div>
               <div className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
-                <div className="text-gray-100 flex flex-col">
-                  <span>+234 703 496 6376</span>
-                  <span>+234 906 921 2785</span>
-                  <span>+234 803 657 4935</span>
+                <div className="text-gray-100 flex flex-col space-y-1">
+                  <a href="tel:+2347034966376" className="hover:text-white transition-colors">+234 703 496 6376</a>
+                  <a href="tel:+2349069212785" className="hover:text-white transition-colors">+234 906 921 2785</a>
+                  <a href="tel:+2348036574935" className="hover:text-white transition-colors">+234 803 657 4935</a>
                 </div>
               </div>
               <div className="flex items-center">
                 <Mail className="h-5 w-5 mr-3 text-brand-accent shrink-0" />
-                <span className="text-gray-100">gamboconsultancy@gmail.com</span>
+                <a 
+                  href="mailto:gamboconsultancy@gmail.com" 
+                  className="text-gray-100 hover:text-white transition-colors"
+                >
+                  gamboconsultancy@gmail.com
+                </a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 text-center text-gray-400 text-sm">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-sm">
           <p>&copy; {currentYear} Gambo Consultancy. All rights reserved.</p>
+          <p>
+            Designed and developed by{' '}
+            <a 
+              href="https://samkiel.dev" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="font-semibold hover:text-brand-accent transition-colors"
+            >
+              SAMKIEL
+            </a>
+          </p>
         </div>
       </div>
     </footer>
