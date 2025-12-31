@@ -60,7 +60,7 @@ export default function AboutPage() {
                 />
                 <div className="mt-4">
                   <h3 className="text-xl font-bold text-brand-primary">
-                    Dr. Gambo
+                    Prof. Dr. Ishaya Gambo
                   </h3>
                   <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">
                     Founder & Lead Consultant
