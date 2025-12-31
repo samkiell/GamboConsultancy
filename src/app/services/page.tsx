@@ -107,6 +107,23 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* Video Introduction */}
+      <Section background="white">
+        <div className="max-w-4xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white"
+          >
+            <video className="w-full h-auto" controls preload="metadata">
+              <source src="/videos/Services.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </motion.div>
+        </div>
+      </Section>
+
       {/* Departments */}
       {departments.map((dept, index) => (
         <Section
