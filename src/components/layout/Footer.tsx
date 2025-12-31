@@ -1,5 +1,12 @@
-import Link from 'next/link';
-import { Mail, MapPin, Phone, Instagram, Facebook, Linkedin } from 'lucide-react';
+import Link from "next/link";
+import {
+  Mail,
+  MapPin,
+  Phone,
+  Instagram,
+  Facebook,
+  Linkedin,
+} from "lucide-react";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -79,9 +86,24 @@ export function Footer() {
               <div className="flex items-start">
                 <Phone className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
                 <div className="text-white flex flex-col space-y-1">
-                  <a href="tel:+2347034966376" className="hover:text-white transition-colors">+234 703 496 6376</a>
-                  <a href="tel:+2349069212785" className="hover:text-white transition-colors">+234 906 921 2785</a>
-                  <a href="tel:+2348036574935" className="hover:text-white transition-colors">+234 803 657 4935</a>
+                  <a
+                    href="tel:+2347034966376"
+                    className="hover:text-white transition-colors"
+                  >
+                    +234 703 496 6376
+                  </a>
+                  <a
+                    href="tel:+2349069212785"
+                    className="hover:text-white transition-colors"
+                  >
+                    +234 906 921 2785
+                  </a>
+                  <a
+                    href="tel:+2348036574935"
+                    className="hover:text-white transition-colors"
+                  >
+                    +234 803 657 4935
+                  </a>
                 </div>
               </div>
               <div className="flex items-center">
@@ -123,7 +145,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-white hover:text-white transition-colors"
                 >
-                 Prof. Dr. Ishaya Gambo
+                  Prof. Dr. Ishaya Gambo
                 </a>
               </div>
             </div>
@@ -135,7 +157,7 @@ export function Footer() {
             &copy; {currentYear} Gambo Consultancy. All rights reserved.
           </p>
           <p className="!text-white">
-            Designed and developed by{' '}
+            Designed and developed by{" "}
             <a
               href="https://samkiel.dev"
               target="_blank"

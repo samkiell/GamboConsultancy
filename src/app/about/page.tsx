@@ -59,12 +59,8 @@ export default function AboutPage() {
                   priority
                 />
                 <div className="mt-4">
-                  <h3 className="text-xl font-bold text-brand-primary">
-                    Prof. Dr. Ishaya Gambo
-                  </h3>
-                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">
-                    Founder & Lead Consultant
-                  </p>
+                  <h3 className="text-xl font-bold text-brand-primary">Prof. Dr. Ishaya Gambo</h3>
+                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">Founder & Lead Consultant</p>
                 </div>
               </div>
             </motion.div>
