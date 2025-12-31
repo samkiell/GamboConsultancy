@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Section } from '@/components/layout/Section';
 import { Target, Lightbulb, ShieldCheck } from 'lucide-react';
 
@@ -37,20 +38,52 @@ export default function AboutPage() {
 
       {/* Main Introduction */}
       <Section background="white">
-        <motion.div {...fadeInUp} className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold text-brand-primary mb-6">Our Narrative</h2>
-          <div className="prose prose-lg text-text-muted">
-            <p className="mb-6">
-              Gambo Consultancy was established with a singular purpose: to provide high-level strategic guidance that bridges the gap between ambition and achievement. In an era of rapid technological and social change, clarity is the most valuable asset. We provide that clarity.
-            </p>
-            <p className="mb-6">
-              Our firm operates at the intersection of five critical disciplines: Education, Technology, Leadership, Mentorship, and Life Coaching. This multidisciplinary approach allows us to see the holistic picture, ensuring that our solutions are not just effective in isolation but synergetic in practice.
-            </p>
-            <p>
-              We pride ourselves on an academic approach to consultancy—meaning every strategy we recommend is backed by research, experience, and a deep understanding of underlying principles. We do not offer quick fixes; we offer sustainable paths to excellence.
-            </p>
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-start">
+            {/* Founder Image */}
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="md:col-span-5 lg:col-span-4"
+            >
+              <div className="relative">
+                <Image
+                  src="/Dr. Gambo.jpg"
+                  alt="Dr. Gambo, Founder & Lead Consultant"
+                  width={400}
+                  height={500}
+                  className="rounded-lg shadow-sm w-full h-auto object-cover"
+                  priority
+                />
+                <div className="mt-4">
+                  <h3 className="text-xl font-bold text-brand-primary">Dr. Gambo</h3>
+                  <p className="text-sm text-text-muted uppercase tracking-wider mt-1 font-medium">Founder & Lead Consultant</p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Narrative Content */}
+            <motion.div 
+              {...fadeInUp} 
+              className="md:col-span-7 lg:col-span-8"
+            >
+              <h2 className="text-3xl font-bold text-brand-primary mb-6">Our Narrative</h2>
+              <div className="prose prose-lg text-text-muted">
+                <p className="mb-6">
+                  Gambo Consultancy was established with a singular purpose: to provide high-level strategic guidance that bridges the gap between ambition and achievement. In an era of rapid technological and social change, clarity is the most valuable asset. We provide that clarity.
+                </p>
+                <p className="mb-6">
+                  Our firm operates at the intersection of five critical disciplines: Education, Technology, Leadership, Mentorship, and Life Coaching. This multidisciplinary approach allows us to see the holistic picture, ensuring that our solutions are not just effective in isolation but synergetic in practice.
+                </p>
+                <p>
+                  We pride ourselves on an academic approach to consultancy—meaning every strategy we recommend is backed by research, experience, and a deep understanding of underlying principles. We do not offer quick fixes; we offer sustainable paths to excellence.
+                </p>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+        </div>
       </Section>
 
       {/* Mission & Vision */}
