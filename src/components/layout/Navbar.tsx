@@ -24,12 +24,12 @@ export function Navbar() {
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center">
               <Image 
-                src="/logo.svg" 
+                src="/logo.jpg" 
                 alt="Gambo Consultancy" 
-                width={200} 
+                width={150} 
                 height={50} 
                 priority
-                className="h-10 w-auto" 
+                className="h-12 w-auto object-contain" 
               />
             </Link>
           </div>

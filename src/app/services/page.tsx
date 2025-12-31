@@ -79,7 +79,7 @@ export default function ServicesPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xl text-gray-200 max-w-3xl mx-auto"
+            className="text-xl text-white max-w-3xl mx-auto"
           >
             Specialized expertise tailored to meet the unique challenges of your organization.
           </motion.p>
