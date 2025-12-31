@@ -127,7 +127,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="text-white hover:text-white transition-colors"
                 >
-                  Ishaya Gambo
+                  Prof. Ishaya Gambo
                 </a>
               </div>
             </div>
