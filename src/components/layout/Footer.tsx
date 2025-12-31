@@ -75,9 +75,9 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-white text-sm">
-          <p>&copy; {currentYear} Gambo Consultancy. All rights reserved.</p>
-          <p>
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
+          <p className="!text-white">&copy; {currentYear} Gambo Consultancy. All rights reserved.</p>
+          <p className="!text-white">
             Designed and developed by{' '}
             <a 
               href="https://samkiel.dev" 
