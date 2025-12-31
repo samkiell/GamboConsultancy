@@ -78,6 +78,13 @@ Obafemi Awolowo University, Ile-Ife, 22028, Osun State.
 - **Phone:** +234 703 496 6376 | +234 906 921 2785
 - **WhatsApp:** +234 803 657 4935
 
+## 👥 Contributors
+
+This project was built with ❤️ by:
+
+- **[PRIME](https://github.com/Isaacayomi)**
+- **[SAMKIEL](https://github.com/samkiell)**
+
 ---
 
 © 2025 Gambo Consultancy. All rights reserved.
