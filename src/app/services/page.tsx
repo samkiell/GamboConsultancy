@@ -109,7 +109,7 @@ export default function ServicesPage() {
 
       {/* Video Introduction */}
       <Section background="white">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-2xl mx-auto">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
