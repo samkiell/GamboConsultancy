@@ -48,14 +48,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom Base Styles for Corporate Feel */
-h1, h2, h3, h4, h5, h6 {
-  color: var(--color-primary);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-}
+@layer base {
+  /* Custom Base Styles for Corporate Feel */
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-primary);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
 
-p {
-  color: var(--color-text-muted);
-  line-height: 1.6;
+  p {
+    color: var(--color-text-muted);
+    line-height: 1.6;
+  }
 }
