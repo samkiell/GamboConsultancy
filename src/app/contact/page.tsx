@@ -134,7 +134,6 @@ export default function ContactPage() {
                         </svg>
                       </a>
                     </div>
-                    <a href="tel:+2349069212785" className="text-text-muted hover:text-brand-primary transition-colors">+234 906 921 2785</a>
                     <div className="flex items-center gap-2">
                       <a href="tel:+2348036574935" className="text-text-muted hover:text-brand-primary transition-colors">+234 803 657 4935</a>
                       <a
@@ -149,6 +148,7 @@ export default function ContactPage() {
                         </svg>
                       </a>
                     </div>
+                    <a href="tel:+2349069212785" className="text-text-muted hover:text-brand-primary transition-colors">+234 906 921 2785</a>
                   </div>
                 </div>
               </div>

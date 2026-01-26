@@ -111,12 +111,6 @@ export function Footer() {
                       </svg>
                     </a>
                   </div>
-                  <a
-                    href="tel:+2349069212785"
-                    className="hover:text-white transition-colors"
-                  >
-                    +234 906 921 2785
-                  </a>
                   <div className="flex items-center gap-2">
                     <a
                       href="tel:+2348036574935"
@@ -140,6 +134,12 @@ export function Footer() {
                       </svg>
                     </a>
                   </div>
+                  <a
+                    href="tel:+2349069212785"
+                    className="hover:text-white transition-colors"
+                  >
+                    +234 906 921 2785
+                  </a>
                 </div>
               </div>
               <div className="flex items-center">
