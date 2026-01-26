@@ -76,12 +76,13 @@ export function Footer() {
               <div className="flex items-start">
                 <MapPin className="h-5 w-5 mr-3 text-brand-accent mt-0.5 shrink-0" />
                 <a
-                  href="https://maps.google.com/?q=Opposite+Obafemi+Awolowo+University+Campus+Gate"
+                  href="https://maps.google.com/?q=Opposite+Obafemi+Awolowo+University+Campus+Gate,+Ile-Ife,+Osun+State"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-white hover:text-white transition-colors"
                 >
-                  Opposite Obafemi Awolowo University Campus Gate.
+                  Opposite Obafemi Awolowo University Campus Gate, Ile-Ife,
+                  Osun State.
                 </a>
               </div>
               <div className="flex items-start">

@@ -10,6 +10,7 @@ import { Section } from "@/components/layout/Section";
 type Inputs = {
   name: string;
   email: string;
+  phone: string;
   department: string;
   message: string;
 };
@@ -82,12 +83,13 @@ export default function ContactPage() {
                     Office Location
                   </h3>
                   <a
-                    href="https://maps.google.com/?q=Opposite+Obafemi+Awolowo+University+Campus+Gate"
+                    href="https://maps.google.com/?q=Opposite+Obafemi+Awolowo+University+Campus+Gate,+Ile-Ife,+Osun+State"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-text-muted hover:text-brand-primary transition-colors"
                   >
-                    Opposite Obafemi Awolowo University Campus Gate.
+                    Opposite Obafemi Awolowo University Campus Gate, Ile-Ife,
+                    Osun State.
                   </a>
                 </div>
               </div>
@@ -233,6 +235,29 @@ export default function ContactPage() {
                   {errors.email && (
                     <p className="text-red-500 text-sm mt-1">
                       {errors.email.message}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="phone"
+                    className="block text-sm font-medium text-gray-700 mb-1"
+                  >
+                    Phone Number
+                  </label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    className="w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary border px-4 py-2"
+                    placeholder="+234 800 000 0000"
+                    {...register("phone", {
+                      required: "Phone number is required",
+                    })}
+                  />
+                  {errors.phone && (
+                    <p className="text-red-500 text-sm mt-1">
+                      {errors.phone.message}
                     </p>
                   )}
                 </div>

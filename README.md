@@ -71,7 +71,7 @@ src/
 ## 📞 Contact Information
 
 **Gambo Consultancy**  
-Opposite Obafemi Awolowo University Campus Gate.
+Opposite Obafemi Awolowo University Campus Gate, Ile-Ife, Osun State.
 
 - **Email:** gamboconsultancy@gmail.com
 - **Phone:** +234 703 496 6376 | +234 906 921 2785
