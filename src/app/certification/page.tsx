@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Loader2, Download, FileText, Lock, User, LogOut, Maximize2, X as CloseIcon } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
 export default function CertificationAdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -263,7 +264,7 @@ export default function CertificationAdminPage() {
           <div className="md:col-span-3">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden h-full min-h-[500px] flex flex-col">
               <div className="px-6 py-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
-                <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Internal Preview</h2>
+                <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">PDF Preview</h2>
                 {pdfUrl && (
                    <button 
                     onClick={() => setIsFullscreen(true)}
