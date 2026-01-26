@@ -82,15 +82,12 @@ export default function ContactPage() {
                     Office Location
                   </h3>
                   <a
-                    href="https://maps.google.com/?q=Road+2,+ICT+Centre,+Centre+of+Excellence+in+Software+Engineering,+Obafemi+Awolowo+University,+Ile-Ife,+22028,+Osun+State"
+                    href="https://maps.google.com/?q=Opposite+Obafemi+Awolowo+University+Campus+Gate"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-text-muted hover:text-brand-primary transition-colors"
                   >
-                    Road 2, ICT Centre, Centre of Excellence in Software
-                    Engineering,
-                    <br />
-                    Obafemi Awolowo University, Ile-Ife, 22028, Osun State.
+                    Opposite Obafemi Awolowo University Campus Gate.
                   </a>
                 </div>
               </div>
