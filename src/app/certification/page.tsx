@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Loader2, Download, FileText, Lock, User, LogOut } from 'lucide-react';
+import { Loader2, Download, FileText, Lock, User, LogOut, Maximize2, X as CloseIcon } from 'lucide-react';
 
 export default function CertificationAdminPage() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
@@ -12,6 +12,7 @@ export default function CertificationAdminPage() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [pdfUrl, setPdfUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   // Check auth state on load
   useEffect(() => {
@@ -262,19 +263,33 @@ export default function CertificationAdminPage() {
           <div className="md:col-span-3">
             <div className="bg-white rounded-xl shadow-sm border border-gray-200 overflow-hidden h-full min-h-[500px] flex flex-col">
               <div className="px-6 py-4 bg-gray-50 border-b border-gray-200 flex justify-between items-center">
-                <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Preview</h2>
+                <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wider">Internal Preview</h2>
                 {pdfUrl && (
-                   <span className="text-xs text-gray-400">PDF Viewer</span>
+                   <button 
+                    onClick={() => setIsFullscreen(true)}
+                    className="flex items-center gap-1.5 text-xs font-semibold text-brand-primary hover:text-brand-primary-light transition-colors py-1 px-2 rounded-md hover:bg-brand-primary/5"
+                   >
+                     <Maximize2 className="w-3.5 h-3.5" />
+                     Expand View
+                   </button>
                 )}
               </div>
               
-              <div className="flex-1 bg-gray-200 flex items-center justify-center overflow-auto p-4">
+              <div className="flex-1 bg-gray-100 flex items-center justify-center overflow-auto p-4 relative group">
                 {pdfUrl ? (
-                  <iframe
-                    src={pdfUrl}
-                    className="w-full h-full border-none rounded shadow-lg"
-                    title="Certificate Preview"
-                  />
+                  <div className="w-full h-full relative cursor-pointer" onClick={() => setIsFullscreen(true)}>
+                    <iframe
+                      src={`${pdfUrl}#toolbar=0&navpanes=0&scrollbar=0`}
+                      className="w-full h-full border-none rounded shadow-lg pointer-events-none"
+                      title="Certificate Preview"
+                    />
+                    <div className="absolute inset-0 bg-transparent group-hover:bg-black/5 transition-colors flex items-center justify-center opacity-0 group-hover:opacity-100">
+                      <div className="bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg flex items-center gap-2 text-sm font-medium text-gray-900">
+                        <Maximize2 className="w-4 h-4" />
+                        Click to Expand
+                      </div>
+                    </div>
+                  </div>
                 ) : (
                   <div className="text-center p-8">
                     <div className="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4 border-2 border-dashed border-gray-300">
@@ -288,6 +303,34 @@ export default function CertificationAdminPage() {
           </div>
         </div>
       </main>
+
+      {/* Fullscreen Preview Modal */}
+      {isFullscreen && pdfUrl && (
+        <div className="fixed inset-0 z-[100] bg-black/90 backdrop-blur-sm p-4 md:p-10 flex flex-col">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-white font-semibold text-lg">Certificate Preview - {traineeName}</h3>
+            <div className="flex items-center gap-4">
+              <Button onClick={downloadPdf} variant="primary" size="sm" className="gap-2">
+                <Download className="w-4 h-4" />
+                Download
+              </Button>
+              <button 
+                onClick={() => setIsFullscreen(false)}
+                className="p-2 text-white/70 hover:text-white transition-colors"
+              >
+                <CloseIcon className="w-8 h-8" />
+              </button>
+            </div>
+          </div>
+          <div className="flex-1 bg-white rounded-xl overflow-hidden shadow-2xl">
+            <iframe
+              src={`${pdfUrl}#toolbar=0&navpanes=0`}
+              className="w-full h-full border-none"
+              title="Fullscreen Certificate Preview"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 }

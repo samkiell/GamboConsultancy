@@ -53,7 +53,7 @@ export async function POST(request: Request) {
     // We might need to adjust y based on the actual template layout
     // Usually names are placed at about 50-60% of the height
     const x = (width - nameWidth) / 2;
-    const y = height * 0.48; // Adjust this based on template
+    const y = height * 0.43; // Moving further down closer to the line
 
     // 7. Draw the text
     firstPage.drawText(traineeName, {
