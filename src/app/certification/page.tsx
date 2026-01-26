@@ -133,7 +133,7 @@ export default function CertificationAdminPage() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none transition-all"
-                  placeholder="admin@gamboconsultancy.com"
+                  placeholder="Enter your admin email"
                   required
                 />
                 <User className="w-5 h-5 text-gray-400 absolute left-3 top-2.5" />
@@ -148,7 +148,7 @@ export default function CertificationAdminPage() {
                   value={secret}
                   onChange={(e) => setSecret(e.target.value)}
                   className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-brand-primary/20 focus:border-brand-primary outline-none transition-all"
-                  placeholder="••••••••"
+                  placeholder="Enter your secret passcode"
                   required
                 />
                 <Lock className="w-5 h-5 text-gray-400 absolute left-3 top-2.5" />
