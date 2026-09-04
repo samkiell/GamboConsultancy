@@ -16,6 +16,7 @@ import {
   Download,
   Calendar,
   Sparkles,
+  MessageCircle,
 } from 'lucide-react';
 
 interface MasterclassRegistration {
@@ -29,9 +30,17 @@ interface MasterclassRegistration {
   expectation?: string;
   state?: string;
   county?: string;
+  country?: string;
   age?: string;
   status: 'Confirmed' | 'Attended' | 'Cancelled';
   createdAt: string;
+}
+
+function getWhatsAppUrl(phone: string, name: string) {
+  const digits = (phone || '').replace(/\D/g, '');
+  const cleanPhone = digits.startsWith('0') ? `234${digits.slice(1)}` : digits;
+  const msg = encodeURIComponent(`Hello ${name}, this is Gambo Consultancy regarding your Masterclass 2026 registration.`);
+  return `https://wa.me/${cleanPhone}?text=${msg}`;
 }
 
 export function AdminMasterclass() {
@@ -92,10 +101,10 @@ export function AdminMasterclass() {
       'ID',
       'Full Name',
       'Email',
-      'Phone',
+      'WhatsApp Number',
       'Organization',
       'State',
-      'County',
+      'Country',
       'Age Range',
       'Status',
       'Date Registered',
@@ -107,7 +116,7 @@ export function AdminMasterclass() {
       `"${r.phone}"`,
       `"${(r.organization || '').replace(/"/g, '""')}"`,
       `"${(r.state || '').replace(/"/g, '""')}"`,
-      `"${(r.county || '').replace(/"/g, '""')}"`,
+      `"${(r.country || r.county || '').replace(/"/g, '""')}"`,
       `"${(r.age || '').replace(/"/g, '""')}"`,
       r.status,
       r.createdAt,
@@ -131,6 +140,7 @@ export function AdminMasterclass() {
       item.phone.toLowerCase().includes(query) ||
       (item.organization && item.organization.toLowerCase().includes(query)) ||
       (item.state && item.state.toLowerCase().includes(query)) ||
+      (item.country && item.country.toLowerCase().includes(query)) ||
       (item.county && item.county.toLowerCase().includes(query)) ||
       (item.age && item.age.toLowerCase().includes(query));
     return matchesStatus && matchesSearch;
@@ -264,9 +274,9 @@ export function AdminMasterclass() {
               <tr>
                 <th className="px-6 py-3.5">Registration ID</th>
                 <th className="px-6 py-3.5">Participant</th>
-                <th className="px-6 py-3.5">Contact Details</th>
+                <th className="px-6 py-3.5">WhatsApp & Email</th>
                 <th className="px-6 py-3.5">Organization</th>
-                <th className="px-6 py-3.5">State & County</th>
+                <th className="px-6 py-3.5">State & Country</th>
                 <th className="px-6 py-3.5">Date</th>
                 <th className="px-6 py-3.5">Status</th>
                 <th className="px-6 py-3.5 text-right">Details</th>
@@ -290,15 +300,18 @@ export function AdminMasterclass() {
                   </td>
                   <td className="px-6 py-4">
                     <div className="text-slate-900 font-medium">{item.email}</div>
-                    <div className="text-slate-400 text-[11px] mt-0.5">{item.phone}</div>
+                    <div className="text-emerald-700 text-[11px] mt-0.5 font-medium flex items-center gap-1">
+                      <MessageCircle className="w-3 h-3" />
+                      {item.phone}
+                    </div>
                   </td>
                   <td className="px-6 py-4 text-slate-600">
                     <div className="font-medium text-slate-800">{item.organization || 'Independent'}</div>
                   </td>
                   <td className="px-6 py-4 text-slate-600">
                     <div className="font-medium text-slate-800">{item.state || 'N/A'}</div>
-                    {item.county && (
-                      <div className="text-slate-400 text-[11px] mt-0.5">{item.county}</div>
+                    {(item.country || item.county) && (
+                      <div className="text-slate-400 text-[11px] mt-0.5">{item.country || item.county}</div>
                     )}
                   </td>
                   <td className="px-6 py-4 text-slate-400 text-[11px] font-mono whitespace-nowrap">
@@ -346,16 +359,18 @@ export function AdminMasterclass() {
                 <div className="text-xs text-slate-600 font-medium mt-0.5">
                   {item.organization || 'Independent'}
                 </div>
-                {(item.state || item.county) && (
+                {(item.state || item.country || item.county) && (
                   <div className="text-xs text-slate-400 mt-0.5">
-                    {[item.county, item.state].filter(Boolean).join(', ')}
+                    {[item.state, item.country || item.county].filter(Boolean).join(', ')}
                   </div>
                 )}
               </div>
               <div className="flex items-center justify-between pt-2 border-t border-slate-50 text-[11px] text-slate-400">
-                <span>{item.createdAt ? new Date(item.createdAt).toLocaleDateString() : ''}</span>
+                <span className="flex items-center gap-1 text-emerald-700 font-medium">
+                  <MessageCircle className="w-3 h-3" /> {item.phone}
+                </span>
                 <span className="text-brand-primary font-semibold flex items-center gap-0.5">
-                  View Response <ChevronRight className="w-3 h-3" />
+                  View <ChevronRight className="w-3 h-3" />
                 </span>
               </div>
             </div>
@@ -419,14 +434,16 @@ export function AdminMasterclass() {
                 </div>
 
                 <div className="flex items-center gap-3">
-                  <div className="p-2 bg-white rounded-lg border border-slate-200/70 text-brand-primary">
-                    <Phone className="w-3.5 h-3.5" />
+                  <div className="p-2 bg-white rounded-lg border border-slate-200/70 text-emerald-600">
+                    <MessageCircle className="w-3.5 h-3.5" />
                   </div>
                   <div>
-                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Phone</span>
+                    <span className="text-[10px] text-slate-400 uppercase tracking-wider block">WhatsApp Number</span>
                     <a
-                      href={`tel:${activeItem.phone}`}
-                      className="text-xs font-medium text-slate-800 hover:text-brand-primary"
+                      href={getWhatsAppUrl(activeItem.phone, activeItem.fullName)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-xs font-medium text-emerald-700 hover:text-emerald-800 flex items-center gap-1"
                     >
                       {activeItem.phone}
                     </a>
@@ -443,9 +460,9 @@ export function AdminMasterclass() {
                   </span>
                 </div>
                 <div>
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">State & County</span>
+                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">State & Country</span>
                   <span className="text-xs font-semibold text-slate-800 mt-0.5 block">
-                    {[activeItem.county, activeItem.state].filter(Boolean).join(', ') || 'Unspecified'}
+                    {[activeItem.state, activeItem.country || activeItem.county].filter(Boolean).join(', ') || 'Unspecified'}
                   </span>
                 </div>
                 <div>
@@ -453,16 +470,6 @@ export function AdminMasterclass() {
                   <span className="text-xs font-semibold text-slate-800 mt-0.5 block">
                     {activeItem.age || 'Unspecified'}
                   </span>
-                </div>
-              </div>
-
-              {/* Expectations / Goals */}
-              <div>
-                <label className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider block mb-1.5">
-                  Participant Goals & Expectations
-                </label>
-                <div className="p-4 bg-slate-50/70 rounded-xl border border-slate-200/70 text-xs sm:text-sm text-slate-700 leading-relaxed whitespace-pre-wrap">
-                  {activeItem.expectation || 'No specific expectations submitted.'}
                 </div>
               </div>
 
@@ -498,16 +505,26 @@ export function AdminMasterclass() {
             </div>
 
             {/* Footer */}
-            <div className="p-4 bg-slate-50 border-t border-slate-100 flex items-center justify-between">
+            <div className="p-4 bg-slate-50 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-3">
               <span className="text-[11px] text-slate-400">
                 Registered on {activeItem.createdAt ? new Date(activeItem.createdAt).toLocaleDateString() : ''}
               </span>
-              <a
-                href={`mailto:${activeItem.email}?subject=Masterclass Confirmation - Gambo Consultancy`}
-                className="bg-brand-primary hover:bg-brand-primary-light text-white text-xs font-semibold px-4 py-2 rounded-xl flex items-center gap-1.5 transition-colors shadow-xs"
-              >
-                <Mail className="w-3.5 h-3.5" /> Email Participant
-              </a>
+              <div className="flex items-center gap-2 w-full sm:w-auto justify-end">
+                <a
+                  href={`mailto:${activeItem.email}?subject=Masterclass Confirmation - Gambo Consultancy`}
+                  className="bg-white hover:bg-slate-100 text-slate-700 border border-slate-200 text-xs font-semibold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors shadow-2xs cursor-pointer"
+                >
+                  <Mail className="w-3.5 h-3.5" /> Email Participant
+                </a>
+                <a
+                  href={getWhatsAppUrl(activeItem.phone, activeItem.fullName)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold px-3.5 py-2 rounded-xl flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" /> WhatsApp
+                </a>
+              </div>
             </div>
           </div>
         </div>
