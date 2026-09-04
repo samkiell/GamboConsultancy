@@ -3,6 +3,7 @@ import { cookies } from 'next/headers';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import fs from 'fs';
 import path from 'path';
+import { saveCertificate } from '@/lib/storage';
 
 export async function POST(request: Request) {
   try {
@@ -15,22 +16,23 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    // 2. Get trainee name
-    const { traineeName } = await request.json();
-    if (!traineeName) {
+    // 2. Get trainee name & department
+    const { traineeName, department } = await request.json();
+    if (!traineeName || !traineeName.trim()) {
       return NextResponse.json({ error: 'Trainee name is required' }, { status: 400 });
     }
 
     // 3. Load the existing PDF template
-    const pdfPath = path.join(process.cwd(), 'public', 'cert', 'Certification.pdf');
+    let pdfPath = path.join(process.cwd(), 'public', 'cert', 'Certification.pdf');
     
     // Check if file exists (case sensitivity check)
     if (!fs.existsSync(pdfPath)) {
-        // Try lowercase just in case
-        const lowerPath = path.join(process.cwd(), 'public', 'cert', 'certification.pdf');
-        if (!fs.existsSync(lowerPath)) {
-            return NextResponse.json({ error: 'Certificate template not found' }, { status: 404 });
-        }
+      const lowerPath = path.join(process.cwd(), 'public', 'cert', 'certification.pdf');
+      if (fs.existsSync(lowerPath)) {
+        pdfPath = lowerPath;
+      } else {
+        return NextResponse.json({ error: 'Certificate template not found' }, { status: 404 });
+      }
     }
 
     const existingPdfBytes = fs.readFileSync(pdfPath);
@@ -46,33 +48,36 @@ export async function POST(request: Request) {
     const fontSize = 40;
 
     // 6. Calculate text width for centering
-    // Note: This is an approximation. pdf-lib's width calculation is more accurate.
-    const nameWidth = font.widthOfTextAtSize(traineeName, fontSize);
-    
-    // Position: Center horizontally, and roughly middle vertically
-    // We might need to adjust y based on the actual template layout
-    // Usually names are placed at about 50-60% of the height
+    const nameWidth = font.widthOfTextAtSize(traineeName.trim(), fontSize);
     const x = (width - nameWidth) / 2;
-    const y = height * 0.455; // Moving slightly up from previous 0.43 position
+    const y = height * 0.455;
 
     // 7. Draw the text
-    firstPage.drawText(traineeName, {
+    firstPage.drawText(traineeName.trim(), {
       x,
       y,
       size: fontSize,
       font,
-      color: rgb(0.08, 0.5, 0.24), // #15803D equivalentish
+      color: rgb(0.08, 0.5, 0.24), // Gambo brand primary
     });
 
     // 8. Serialize the PDF to bytes
     const pdfBytes = await pdfDoc.save();
 
-    // 9. Return the PDF
+    // 9. Persist real certificate record to storage
+    const savedCert = await saveCertificate({
+      traineeName: traineeName.trim(),
+      department: department || 'Leadership Consultancy',
+    });
+
+    // 10. Return the PDF
     return new NextResponse(Buffer.from(pdfBytes), {
       status: 200,
       headers: {
         'Content-Type': 'application/pdf',
-        'Content-Disposition': `attachment; filename="${traineeName.replace(/\s+/g, '_')}_Gambo_Consultancy_Certificate.pdf"`,
+        'Content-Disposition': `attachment; filename="${traineeName.trim().replace(/\s+/g, '_')}_Gambo_Consultancy_Certificate.pdf"`,
+        'X-Certificate-Id': savedCert.id,
+        'X-Certificate-Date': savedCert.issueDate,
       },
     });
 
