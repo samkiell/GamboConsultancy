@@ -320,37 +320,6 @@ function AdminContent() {
         </div>
       </header>
 
-      {/* Mobile Horizontal Tab Navigation (Quick Switch) */}
-      <div className="md:hidden bg-white border-b border-slate-200/80 px-4 py-2.5 overflow-x-auto flex items-center gap-1.5 scrollbar-none">
-        {navigationItems.map((item) => {
-          const Icon = item.icon;
-          const isActive = activeTab === item.id;
-          return (
-            <button
-              key={item.id}
-              onClick={() => handleTabChange(item.id)}
-              className={`flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium whitespace-nowrap transition-all shrink-0 cursor-pointer ${
-                isActive
-                  ? 'bg-brand-primary text-white shadow-xs'
-                  : 'text-slate-600 bg-slate-100/80 hover:bg-slate-100'
-              }`}
-            >
-              <Icon className="w-3.5 h-3.5" />
-              <span>{item.label}</span>
-              {item.badge && (
-                <span
-                  className={`text-[9px] px-1.5 py-0.2 rounded-full font-semibold ${
-                    isActive ? 'bg-white/25 text-white' : 'bg-emerald-100 text-emerald-800'
-                  }`}
-                >
-                  {item.badge}
-                </span>
-              )}
-            </button>
-          );
-        })}
-      </div>
-
       {/* Main Layout Container */}
       <div className="flex-1 flex max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 gap-8">
         {/* Desktop Sidebar */}
@@ -404,10 +373,22 @@ function AdminContent() {
             >
               <div>
                 <div className="flex items-center justify-between pb-4 border-b border-slate-100">
-                  <span className="font-semibold text-slate-900 text-sm">Navigation</span>
+                  <div className="flex items-center gap-2">
+                    <Image
+                      src="/logo.png"
+                      alt="Gambo Consultancy"
+                      width={120}
+                      height={30}
+                      className="h-6 w-auto"
+                    />
+                    <span className="text-[10px] font-semibold tracking-wider text-brand-primary bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/60 uppercase">
+                      Admin
+                    </span>
+                  </div>
                   <button
                     onClick={() => setIsMobileSidebarOpen(false)}
-                    className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100"
+                    className="p-1.5 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-100 cursor-pointer"
+                    aria-label="Close navigation"
                   >
                     <X className="w-5 h-5" />
                   </button>
