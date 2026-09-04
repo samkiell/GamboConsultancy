@@ -8,6 +8,7 @@ import {
   CheckCircle2,
   Inbox,
   ChevronRight,
+  GraduationCap,
 } from 'lucide-react';
 
 interface AdminAnalyticsProps {
@@ -22,6 +23,8 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
     certificatesIssued: 0,
     activeConsultations: 0,
     completedConsultations: 0,
+    masterclassCount: 0,
+    masterclassConfirmed: 0,
   };
 
   const monthlyTrends = stats?.monthlyTrends || [];
@@ -46,17 +49,29 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
             Executive Operations & Analytics
           </h2>
           <p className="text-xs sm:text-sm text-emerald-100/90 mt-1.5 max-w-xl leading-relaxed">
-            Live metrics aggregated directly from client inquiries and issued credentials.
+            Live metrics aggregated directly from client inquiries, masterclass intake, and issued credentials.
           </p>
         </div>
 
         <div className="flex flex-wrap items-center gap-2.5">
           <button
-            onClick={() => onNavigateTab('certifications')}
+            onClick={() => onNavigateTab('masterclass')}
             className="bg-white hover:bg-emerald-50 text-brand-primary px-4 py-2.5 rounded-xl text-xs font-semibold transition-all shadow-xs flex items-center gap-1.5 cursor-pointer"
           >
+            <GraduationCap className="w-4 h-4" />
+            Masterclass Responses
+            {kpis.masterclassCount > 0 && (
+              <span className="bg-emerald-100 text-emerald-900 text-[10px] px-1.5 py-0.2 rounded-full font-bold ml-1">
+                {kpis.masterclassCount}
+              </span>
+            )}
+          </button>
+          <button
+            onClick={() => onNavigateTab('certifications')}
+            className="bg-white/15 hover:bg-white/25 text-white border border-white/20 px-4 py-2.5 rounded-xl text-xs font-semibold transition-all flex items-center gap-1.5 cursor-pointer"
+          >
             <Award className="w-4 h-4" />
-            Issue Certificate
+            Certifications
           </button>
           <button
             onClick={() => onNavigateTab('inquiries')}
@@ -74,9 +89,39 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
       </div>
 
       {/* KPI Cards Grid */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3.5 sm:gap-4">
+        {/* Masterclass Registrations Card */}
+        <div
+          onClick={() => onNavigateTab('masterclass')}
+          className="bg-gradient-to-br from-emerald-50 via-white to-emerald-50/60 rounded-2xl border-2 border-emerald-500/30 p-5 shadow-xs flex flex-col justify-between hover:border-brand-primary hover:shadow-md transition-all cursor-pointer group col-span-2 sm:col-span-1"
+        >
+          <div className="flex items-center justify-between">
+            <span className="text-xs font-semibold text-emerald-900 flex items-center gap-1.5">
+              <GraduationCap className="w-4 h-4 text-brand-primary" />
+              Masterclass 2026
+            </span>
+            <div className="w-7 h-7 rounded-lg bg-emerald-100 text-brand-primary flex items-center justify-center group-hover:scale-110 transition-transform">
+              <ChevronRight className="w-4 h-4" />
+            </div>
+          </div>
+          <div className="mt-4">
+            <div className="text-2xl sm:text-3xl font-bold text-emerald-950 tracking-tight">
+              {kpis.masterclassCount || 0}
+            </div>
+            <p className="text-[11px] text-emerald-700 font-medium mt-1 flex items-center justify-between">
+              <span>{kpis.masterclassConfirmed || kpis.masterclassCount || 0} confirmed</span>
+              <span className="group-hover:underline font-semibold flex items-center gap-0.5">
+                View &rarr;
+              </span>
+            </p>
+          </div>
+        </div>
+
         {/* Total Inquiries */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between">
+        <div
+          onClick={() => onNavigateTab('inquiries')}
+          className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all cursor-pointer"
+        >
           <div className="flex items-center justify-between">
             <span className="text-xs font-medium text-slate-500">Total Inquiries</span>
             <div className="w-8 h-8 rounded-lg bg-emerald-50 text-brand-primary flex items-center justify-center">
@@ -91,16 +136,19 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
               {kpis.newInquiries > 0 ? (
                 <span className="text-emerald-700 font-medium">{kpis.newInquiries} new pending</span>
               ) : (
-                'All inquiries reviewed'
+                'All reviewed'
               )}
             </p>
           </div>
         </div>
 
         {/* Certificates Issued */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between">
+        <div
+          onClick={() => onNavigateTab('certifications')}
+          className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all cursor-pointer"
+        >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Certificates Issued</span>
+            <span className="text-xs font-medium text-slate-500">Certificates</span>
             <div className="w-8 h-8 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
               <Award className="w-4 h-4" />
             </div>
@@ -109,14 +157,17 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
             <div className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               {kpis.certificatesIssued}
             </div>
-            <p className="text-[11px] text-slate-400 mt-1">Accredited credentials</p>
+            <p className="text-[11px] text-slate-400 mt-1">Accredited</p>
           </div>
         </div>
 
         {/* Active Consultations */}
-        <div className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between">
+        <div
+          onClick={() => onNavigateTab('inquiries')}
+          className="bg-white rounded-2xl border border-slate-200/80 p-5 shadow-xs flex flex-col justify-between hover:border-slate-300 transition-all cursor-pointer"
+        >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-medium text-slate-500">Active Consultations</span>
+            <span className="text-xs font-medium text-slate-500">Active Consults</span>
             <div className="w-8 h-8 rounded-lg bg-purple-50 text-purple-600 flex items-center justify-center">
               <Users className="w-4 h-4" />
             </div>
@@ -125,7 +176,7 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
             <div className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               {kpis.activeConsultations}
             </div>
-            <p className="text-[11px] text-slate-400 mt-1">In progress or contacted</p>
+            <p className="text-[11px] text-slate-400 mt-1">In progress</p>
           </div>
         </div>
 
@@ -141,7 +192,7 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
             <div className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
               {kpis.completedConsultations}
             </div>
-            <p className="text-[11px] text-slate-400 mt-1">Successfully fulfilled</p>
+            <p className="text-[11px] text-slate-400 mt-1">Fulfilled</p>
           </div>
         </div>
       </div>
@@ -336,24 +387,33 @@ export function AdminAnalytics({ stats, onNavigateTab }: AdminAnalyticsProps) {
               {recentActivity.map((activity: any) => (
                 <div
                   key={activity.id}
-                  className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50/80 transition-colors"
+                  onClick={() => {
+                    if (activity.type === 'masterclass') onNavigateTab('masterclass');
+                    else if (activity.type === 'certificate') onNavigateTab('certificates');
+                    else onNavigateTab('inquiries');
+                  }}
+                  className="flex items-start gap-3.5 p-3 rounded-xl hover:bg-slate-50/80 transition-colors cursor-pointer group"
                 >
                   <div
                     className={`p-2 rounded-lg shrink-0 ${
                       activity.type === 'certificate'
                         ? 'bg-blue-50 text-blue-600'
+                        : activity.type === 'masterclass'
+                        ? 'bg-amber-50 text-amber-600'
                         : 'bg-emerald-50 text-brand-primary'
                     }`}
                   >
                     {activity.type === 'certificate' ? (
                       <Award className="w-3.5 h-3.5" />
+                    ) : activity.type === 'masterclass' ? (
+                      <GraduationCap className="w-3.5 h-3.5" />
                     ) : (
                       <Mail className="w-3.5 h-3.5" />
                     )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center justify-between gap-2">
-                      <h4 className="text-xs font-semibold text-slate-800 truncate">
+                      <h4 className="text-xs font-semibold text-slate-800 truncate group-hover:text-brand-primary transition-colors">
                         {activity.title}
                       </h4>
                       <span className="text-[10px] text-slate-400 shrink-0 font-mono">
