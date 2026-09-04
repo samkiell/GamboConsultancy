@@ -54,10 +54,18 @@ export async function initDb() {
         organization VARCHAR(255),
         topic_interest VARCHAR(255),
         expectation TEXT,
+        state VARCHAR(255),
+        county VARCHAR(255),
+        age VARCHAR(100),
         status VARCHAR(50) DEFAULT 'Confirmed',
         created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
       );
     `;
+
+    // Ensure columns exist for existing table instances
+    await sql`ALTER TABLE masterclass_registrations ADD COLUMN IF NOT EXISTS state VARCHAR(255);`;
+    await sql`ALTER TABLE masterclass_registrations ADD COLUMN IF NOT EXISTS county VARCHAR(255);`;
+    await sql`ALTER TABLE masterclass_registrations ADD COLUMN IF NOT EXISTS age VARCHAR(100);`;
 
     isInitialized = true;
   } catch (error) {
