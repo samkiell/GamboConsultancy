@@ -32,6 +32,9 @@ export interface MasterclassRegistration {
   organization?: string;
   topicInterest?: string;
   expectation?: string;
+  state?: string;
+  county?: string;
+  age?: string;
   status: 'Confirmed' | 'Attended' | 'Cancelled';
   createdAt: string;
 }
@@ -310,7 +313,7 @@ export async function getMasterclassRegistrations(): Promise<MasterclassRegistra
       await initDb();
       const sql = getSql();
       const rows = await sql`
-        SELECT id, full_name, email, phone, occupation, organization, topic_interest, expectation, status, created_at
+        SELECT id, full_name, email, phone, occupation, organization, topic_interest, expectation, state, county, age, status, created_at
         FROM masterclass_registrations
         ORDER BY created_at DESC
       `;
@@ -324,6 +327,9 @@ export async function getMasterclassRegistrations(): Promise<MasterclassRegistra
         organization: row.organization || '',
         topicInterest: row.topic_interest || '',
         expectation: row.expectation || '',
+        state: row.state || '',
+        county: row.county || '',
+        age: row.age || '',
         status: row.status as MasterclassRegistration['status'],
         createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : String(row.created_at),
       }));
@@ -351,6 +357,9 @@ export async function saveMasterclassRegistration(data: {
   organization?: string;
   topicInterest?: string;
   expectation?: string;
+  state?: string;
+  county?: string;
+  age?: string;
 }): Promise<MasterclassRegistration> {
   const newId = `MCR-${Date.now().toString().slice(-6)}`;
   const nowIso = new Date().toISOString();
@@ -361,7 +370,7 @@ export async function saveMasterclassRegistration(data: {
       const sql = getSql();
       const inserted = await sql`
         INSERT INTO masterclass_registrations (
-          id, full_name, email, phone, occupation, organization, topic_interest, expectation, status
+          id, full_name, email, phone, occupation, organization, topic_interest, expectation, state, county, age, status
         )
         VALUES (
           ${newId},
@@ -372,6 +381,9 @@ export async function saveMasterclassRegistration(data: {
           ${data.organization || null},
           ${data.topicInterest || null},
           ${data.expectation || null},
+          ${data.state || null},
+          ${data.county || null},
+          ${data.age || null},
           'Confirmed'
         )
         RETURNING *
@@ -387,6 +399,9 @@ export async function saveMasterclassRegistration(data: {
         organization: row.organization || '',
         topicInterest: row.topic_interest || '',
         expectation: row.expectation || '',
+        state: row.state || '',
+        county: row.county || '',
+        age: row.age || '',
         status: row.status as MasterclassRegistration['status'],
         createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : nowIso,
       };
@@ -407,6 +422,9 @@ export async function saveMasterclassRegistration(data: {
     organization: data.organization || '',
     topicInterest: data.topicInterest || '',
     expectation: data.expectation || '',
+    state: data.state || '',
+    county: data.county || '',
+    age: data.age || '',
     status: 'Confirmed',
     createdAt: nowIso,
   };
@@ -442,6 +460,9 @@ export async function updateMasterclassStatus(
           organization: row.organization || '',
           topicInterest: row.topic_interest || '',
           expectation: row.expectation || '',
+          state: row.state || '',
+          county: row.county || '',
+          age: row.age || '',
           status: row.status as MasterclassRegistration['status'],
           createdAt: row.created_at instanceof Date ? row.created_at.toISOString() : String(row.created_at),
         };
