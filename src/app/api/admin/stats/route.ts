@@ -111,13 +111,16 @@ export async function GET() {
         id: `act-mcr-${m.id}`,
         type: 'masterclass',
         title: 'Masterclass Registration',
-        description: `${m.fullName} registered for masterclass (${m.topicInterest || 'General'})`,
+        description: `${m.fullName} (${m.organization || 'Participant'}) registered for Masterclass 2026`,
         timestamp: formatTimeAgo(m.createdAt),
         rawTime: new Date(m.createdAt).getTime(),
       })),
     ]
       .sort((a, b) => b.rawTime - a.rawTime)
       .slice(0, 10);
+
+    const masterclassConfirmed = masterclassRegistrations.filter((m) => m.status === 'Confirmed').length;
+    const masterclassAttended = masterclassRegistrations.filter((m) => m.status === 'Attended').length;
 
     return NextResponse.json({
       kpis: {
@@ -127,6 +130,8 @@ export async function GET() {
         completedConsultations,
         certificatesIssued,
         masterclassCount,
+        masterclassConfirmed,
+        masterclassAttended,
       },
       monthlyTrends,
       departmentBreakdown,
