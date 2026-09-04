@@ -27,6 +27,9 @@ interface MasterclassRegistration {
   organization?: string;
   topicInterest?: string;
   expectation?: string;
+  state?: string;
+  county?: string;
+  age?: string;
   status: 'Confirmed' | 'Attended' | 'Cancelled';
   createdAt: string;
 }
@@ -85,16 +88,27 @@ export function AdminMasterclass() {
 
   const exportCsv = () => {
     if (registrations.length === 0) return;
-    const headers = ['ID', 'Full Name', 'Email', 'Phone', 'Occupation', 'Organization', 'Topic Interest', 'Expectations', 'Status', 'Date'];
+    const headers = [
+      'ID',
+      'Full Name',
+      'Email',
+      'Phone',
+      'Organization',
+      'State',
+      'County',
+      'Age Range',
+      'Status',
+      'Date Registered',
+    ];
     const rows = registrations.map((r) => [
       r.id,
       `"${r.fullName.replace(/"/g, '""')}"`,
       `"${r.email}"`,
       `"${r.phone}"`,
-      `"${(r.occupation || '').replace(/"/g, '""')}"`,
       `"${(r.organization || '').replace(/"/g, '""')}"`,
-      `"${(r.topicInterest || '').replace(/"/g, '""')}"`,
-      `"${(r.expectation || '').replace(/"/g, '""')}"`,
+      `"${(r.state || '').replace(/"/g, '""')}"`,
+      `"${(r.county || '').replace(/"/g, '""')}"`,
+      `"${(r.age || '').replace(/"/g, '""')}"`,
       r.status,
       r.createdAt,
     ]);
@@ -110,13 +124,15 @@ export function AdminMasterclass() {
 
   const filteredRegistrations = registrations.filter((item) => {
     const matchesStatus = selectedStatus === 'All' || item.status === selectedStatus;
+    const query = searchQuery.toLowerCase();
     const matchesSearch =
-      item.fullName.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.phone.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (item.organization && item.organization.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      (item.occupation && item.occupation.toLowerCase().includes(searchQuery.toLowerCase())) ||
-      (item.topicInterest && item.topicInterest.toLowerCase().includes(searchQuery.toLowerCase()));
+      item.fullName.toLowerCase().includes(query) ||
+      item.email.toLowerCase().includes(query) ||
+      item.phone.toLowerCase().includes(query) ||
+      (item.organization && item.organization.toLowerCase().includes(query)) ||
+      (item.state && item.state.toLowerCase().includes(query)) ||
+      (item.county && item.county.toLowerCase().includes(query)) ||
+      (item.age && item.age.toLowerCase().includes(query));
     return matchesStatus && matchesSearch;
   });
 
@@ -249,8 +265,8 @@ export function AdminMasterclass() {
                 <th className="px-6 py-3.5">Registration ID</th>
                 <th className="px-6 py-3.5">Participant</th>
                 <th className="px-6 py-3.5">Contact Details</th>
-                <th className="px-6 py-3.5">Organization / Role</th>
-                <th className="px-6 py-3.5">Topic Interest</th>
+                <th className="px-6 py-3.5">Organization</th>
+                <th className="px-6 py-3.5">State & County</th>
                 <th className="px-6 py-3.5">Date</th>
                 <th className="px-6 py-3.5">Status</th>
                 <th className="px-6 py-3.5 text-right">Details</th>
@@ -264,17 +280,26 @@ export function AdminMasterclass() {
                   className="hover:bg-slate-50/60 transition-colors cursor-pointer"
                 >
                   <td className="px-6 py-4 font-mono text-brand-primary font-medium">{item.id}</td>
-                  <td className="px-6 py-4 font-semibold text-slate-900">{item.fullName}</td>
+                  <td className="px-6 py-4">
+                    <div className="font-semibold text-slate-900">{item.fullName}</div>
+                    {item.age && (
+                      <span className="inline-block mt-0.5 text-[10px] font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+                        Age: {item.age}
+                      </span>
+                    )}
+                  </td>
                   <td className="px-6 py-4">
                     <div className="text-slate-900 font-medium">{item.email}</div>
                     <div className="text-slate-400 text-[11px] mt-0.5">{item.phone}</div>
                   </td>
                   <td className="px-6 py-4 text-slate-600">
-                    <div>{item.organization || 'Independent'}</div>
-                    <div className="text-slate-400 text-[11px] mt-0.5">{item.occupation || 'Participant'}</div>
+                    <div className="font-medium text-slate-800">{item.organization || 'Independent'}</div>
                   </td>
-                  <td className="px-6 py-4 text-slate-600 max-w-xs truncate">
-                    {item.topicInterest || 'General Session'}
+                  <td className="px-6 py-4 text-slate-600">
+                    <div className="font-medium text-slate-800">{item.state || 'N/A'}</div>
+                    {item.county && (
+                      <div className="text-slate-400 text-[11px] mt-0.5">{item.county}</div>
+                    )}
                   </td>
                   <td className="px-6 py-4 text-slate-400 text-[11px] font-mono whitespace-nowrap">
                     {item.createdAt ? new Date(item.createdAt).toLocaleDateString() : 'N/A'}
@@ -310,14 +335,22 @@ export function AdminMasterclass() {
                 {getStatusBadge(item.status)}
               </div>
               <div>
-                <div className="font-semibold text-slate-900 text-sm">{item.fullName}</div>
-                <div className="text-xs text-slate-500 mt-0.5">
-                  {item.occupation ? `${item.occupation} • ` : ''}
+                <div className="flex items-center justify-between">
+                  <div className="font-semibold text-slate-900 text-sm">{item.fullName}</div>
+                  {item.age && (
+                    <span className="text-[10px] font-medium text-slate-500 bg-slate-100 px-1.5 py-0.5 rounded">
+                      {item.age}
+                    </span>
+                  )}
+                </div>
+                <div className="text-xs text-slate-600 font-medium mt-0.5">
                   {item.organization || 'Independent'}
                 </div>
-              </div>
-              <div className="text-xs text-brand-primary font-medium">
-                {item.topicInterest || 'General Track'}
+                {(item.state || item.county) && (
+                  <div className="text-xs text-slate-400 mt-0.5">
+                    {[item.county, item.state].filter(Boolean).join(', ')}
+                  </div>
+                )}
               </div>
               <div className="flex items-center justify-between pt-2 border-t border-slate-50 text-[11px] text-slate-400">
                 <span>{item.createdAt ? new Date(item.createdAt).toLocaleDateString() : ''}</span>
@@ -355,7 +388,7 @@ export function AdminMasterclass() {
                 </div>
                 <h3 className="text-lg font-bold text-slate-900 mt-1">{activeItem.fullName}</h3>
                 <p className="text-xs text-brand-primary font-medium mt-0.5">
-                  {activeItem.topicInterest || 'Masterclass Cohort Participant'}
+                  {activeItem.organization || 'Participant'}
                 </p>
               </div>
               <button
@@ -401,18 +434,24 @@ export function AdminMasterclass() {
                 </div>
               </div>
 
-              {/* Professional Profile */}
-              <div className="grid grid-cols-2 gap-3 p-3.5 bg-slate-50 rounded-xl border border-slate-100">
-                <div>
-                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Occupation / Role</span>
-                  <span className="text-xs font-semibold text-slate-800 mt-0.5 block">
-                    {activeItem.occupation || 'Unspecified'}
-                  </span>
-                </div>
+              {/* Organization and Location Profile */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-3.5 bg-slate-50 rounded-xl border border-slate-100">
                 <div>
                   <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Organization</span>
                   <span className="text-xs font-semibold text-slate-800 mt-0.5 block">
                     {activeItem.organization || 'Independent'}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">State & County</span>
+                  <span className="text-xs font-semibold text-slate-800 mt-0.5 block">
+                    {[activeItem.county, activeItem.state].filter(Boolean).join(', ') || 'Unspecified'}
+                  </span>
+                </div>
+                <div>
+                  <span className="text-[10px] text-slate-400 uppercase tracking-wider block">Age Bracket</span>
+                  <span className="text-xs font-semibold text-slate-800 mt-0.5 block">
+                    {activeItem.age || 'Unspecified'}
                   </span>
                 </div>
               </div>
