@@ -82,7 +82,7 @@ export default function MasterClassPage() {
             transition={{ duration: 0.8 }}
           >
             <h1 className="text-4xl md:text-5xl text-white font-bold mb-6">
-              Gambo Consultancy Master Class 2026
+              Gambo Consultancy Masterclass 2026
             </h1>
             <p className="text-xl text-white max-w-2xl mx-auto">
               A 4-Day Masterclass for Education Stakeholders
@@ -415,7 +415,7 @@ export default function MasterClassPage() {
               Registration Successful
             </h3>
             <p className="text-gray-500 mb-6 max-w-sm mx-auto">
-              Thank you for registering for the Gambo Consultancy Master Class
+              Thank you for registering for the Gambo Consultancy Masterclass
               2026. We look forward to seeing you!
             </p>
             <Button variant="primary" className="w-full" onClick={closeModal}>
