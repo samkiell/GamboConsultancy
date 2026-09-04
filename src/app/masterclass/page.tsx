@@ -11,7 +11,7 @@ type Inputs = {
   fullName: string;
   organization: string;
   state: string;
-  county: string;
+  country: string;
   phone: string;
   email: string;
   age: string;
@@ -56,7 +56,11 @@ export default function MasterClassPage() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          country: data.country,
+          county: data.country,
+        }),
       });
 
       if (!response.ok) {
@@ -252,36 +256,36 @@ export default function MasterClassPage() {
 
                     <div>
                       <label
-                        htmlFor="county"
+                        htmlFor="country"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        County
+                        Country
                       </label>
                       <input
-                        id="county"
+                        id="country"
                         type="text"
                         className="w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary border px-4 py-2"
-                        placeholder="e.g. Ife"
-                        {...register("county", {
-                          required: "County is required",
+                        placeholder="e.g. Nigeria"
+                        {...register("country", {
+                          required: "Country is required",
                         })}
                       />
-                      {errors.county && (
+                      {errors.country && (
                         <p className="text-red-500 text-sm mt-1">
-                          {errors.county.message}
+                          {errors.country.message}
                         </p>
                       )}
                     </div>
                   </div>
 
-                  {/* Phone & Email */}
+                  {/* WhatsApp & Email */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label
                         htmlFor="phone"
                         className="block text-sm font-medium text-gray-700 mb-1"
                       >
-                        Phone Number
+                        WhatsApp Number
                       </label>
                       <input
                         id="phone"
@@ -289,7 +293,7 @@ export default function MasterClassPage() {
                         className="w-full rounded-md border-gray-300 shadow-sm focus:border-brand-primary focus:ring-brand-primary border px-4 py-2"
                         placeholder="+234 800 000 0000"
                         {...register("phone", {
-                          required: "Phone number is required",
+                          required: "WhatsApp number is required",
                         })}
                       />
                       {errors.phone && (
@@ -416,7 +420,7 @@ export default function MasterClassPage() {
             </h3>
             <p className="text-gray-500 mb-6 max-w-sm mx-auto">
               Thank you for registering for the Gambo Consultancy Masterclass
-              2026. We look forward to seeing you!
+              2026. We will contact you.
             </p>
             <Button variant="primary" className="w-full" onClick={closeModal}>
               Done
