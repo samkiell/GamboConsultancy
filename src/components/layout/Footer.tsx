@@ -16,6 +16,10 @@ export function Footer() {
       href: "/about",
     },
     {
+      name: "Masterclass",
+      href: "/masterclass",
+    },
+    {
       name: "Our Services",
       href: "/services",
     },
